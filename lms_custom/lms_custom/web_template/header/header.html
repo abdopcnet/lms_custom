@@ -1,0 +1,700 @@
+<!-- Edison Template Style Header -->
+<header class="header" data-page="{{ route }}">
+	<div class="header-container">
+		<!-- Logo -->
+		<div class="logo header_logo">
+			<a href="/" class="logo-link">
+				<span class="logo_picture">
+					{% if brand_html %} {{ brand_html }} {% else %}
+					<img
+						src="/assets/lms_custom/img/logo.png"
+						alt="{{ brand_name or 'Learning' }}"
+					/>
+					{% endif %}
+				</span>
+				<span class="logo-text">
+					<span class="brand">{{ brand_name or 'Learning' }}</span>
+					<span class="text_secondary">courses</span>
+				</span>
+			</a>
+		</div>
+
+		<!-- Mobile menu button -->
+		<button class="header_trigger" type="button" id="mobile-menu-btn">
+			<span class="line"></span>
+			<span class="line"></span>
+			<span class="line"></span>
+		</button>
+
+		<!-- Navigation -->
+		<nav class="header_nav" id="header-nav">
+			<ul class="header_nav-list">
+				<li class="header_nav-list_item">
+					<a href="/" class="nav-item {% if route == '/' %}active{% endif %}"> Home </a>
+				</li>
+				<li class="header_nav-list_item dropdown">
+					<button
+						type="button"
+						class="nav-item dropdown-toggle {% if '/courses' in route or '/batches' in route or '/certified-participants' in route %}active{% endif %}"
+						data-dropdown="courses"
+					>
+						Courses
+						<i class="icon-angle-down"></i>
+					</button>
+					<div class="dropdown-menu" data-dropdown-menu="courses">
+						<ul class="dropdown-list">
+							<li class="list-item">
+								<a href="/courses" class="dropdown-item">All Courses</a>
+							</li>
+							<li class="list-item">
+								<a href="/batches" class="dropdown-item">Batches</a>
+							</li>
+							<li class="list-item">
+								<a href="/certified-participants" class="dropdown-item"
+									>Certifications</a
+								>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="header_nav-list_item">
+					<a
+						href="/job-openings"
+						class="nav-item {% if '/job-openings' in route %}active{% endif %}"
+					>
+						Jobs
+					</a>
+				</li>
+				<li class="header_nav-list_item">
+					<a
+						href="/statistics"
+						class="nav-item {% if '/statistics' in route %}active{% endif %}"
+					>
+						Statistics
+					</a>
+				</li>
+
+				<!-- More menu for logged in users -->
+				{% if frappe.session.user != 'Guest' %}
+				<li class="header_nav-list_item dropdown">
+					<button type="button" class="nav-item dropdown-toggle" data-dropdown="more">
+						More
+						<i class="icon-angle-down"></i>
+					</button>
+					<div class="dropdown-menu" data-dropdown-menu="more">
+						<ul class="dropdown-list">
+							<li class="list-item">
+								<a href="/programs" class="dropdown-item">Programs</a>
+							</li>
+							<li class="list-item">
+								<a href="/notifications" class="dropdown-item">Notifications</a>
+							</li>
+							{% if is_moderator or is_instructor %}
+							<li class="list-item">
+								<a href="/quizzes" class="dropdown-item">Quizzes</a>
+							</li>
+							<li class="list-item">
+								<a href="/assignments" class="dropdown-item">Assignments</a>
+							</li>
+							{% endif %}
+						</ul>
+					</div>
+				</li>
+				{% endif %}
+			</ul>
+
+			<!-- Auth buttons / User menu -->
+			<div class="header-auth">
+				{% if frappe.session.user == 'Guest' %}
+				<!-- Guest: Show Sign Up and Log In -->
+				<a href="/login#signup" class="btn-auth btn-auth-signup">Sign Up</a>
+				<a href="/login" class="btn-auth btn-auth-login">Log In</a>
+				{% else %}
+				<!-- Logged in: Show user menu -->
+				<div class="user-menu">
+					<!-- Debug: Show user data -->
+					<!-- User: {{ frappe.session.user }}, Full Name: {{ full_name }}, Is System: {{ is_system_user }}, Is Moderator: {{ is_moderator }} -->
+					<button type="button" class="user-trigger" data-dropdown="user">
+						{% if user_image %}
+						<img src="{{ user_image }}" class="user-avatar" alt="{{ full_name }}" />
+						{% else %}
+						<div class="user-avatar user-avatar-placeholder">
+							{{ full_name[0] if full_name else 'U' }}
+						</div>
+						{% endif %}
+					</button>
+					<div class="user-dropdown" data-dropdown-menu="user">
+						<div class="user-info">
+							<span class="user-name">{{ full_name or frappe.session.user }}</span>
+							<span class="user-email">{{ frappe.session.user }}</span>
+						</div>
+						<div class="dropdown-divider"></div>
+						<a
+							href="/user/{{ username or frappe.session.user }}"
+							class="dropdown-link"
+						>
+							<i class="icon-user"></i> My Profile
+						</a>
+						{% if is_system_user %}
+						<a href="/app" class="dropdown-link">
+							<i class="icon-th-large"></i> Switch to Desk
+						</a>
+						{% endif %} {% if is_moderator %}
+						<a href="/settings" class="dropdown-link">
+							<i class="icon-cog"></i> Settings
+						</a>
+						{% endif %}
+						<div class="dropdown-divider"></div>
+						<a
+							href="/api/method/logout"
+							class="dropdown-link logout"
+							onclick="return confirm('Are you sure you want to log out?')"
+						>
+							<i class="icon-sign-out"></i> Log Out
+						</a>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+		</nav>
+	</div>
+</header>
+
+<style>
+	/* Edison Template Style Navbar */
+	.header {
+		background: #fff;
+		box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+		position: sticky;
+		top: 0;
+		z-index: 1000;
+	}
+
+	.header-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 70px;
+	}
+
+	/* Logo */
+	.logo-link {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		text-decoration: none;
+	}
+
+	.logo_picture {
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.logo_picture img,
+	.logo-img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+
+	.logo-text {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.logo-text .brand {
+		font-size: 18px;
+		font-weight: 700;
+		color: #1a1a2e;
+		line-height: 1.2;
+	}
+
+	.logo-text .text_secondary {
+		font-size: 12px;
+		color: #666;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+
+	/* Navigation */
+	.header_nav {
+		display: flex;
+		align-items: center;
+		gap: 30px;
+	}
+
+	.header_nav-list {
+		display: flex;
+		align-items: center;
+		gap: 5px;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.header_nav-list_item {
+		position: relative;
+	}
+
+	.nav-item {
+		display: inline-flex;
+		align-items: center;
+		gap: 5px;
+		padding: 10px 15px;
+		font-size: 15px;
+		font-weight: 500;
+		color: #1a1a2e;
+		text-decoration: none !important;
+		position: relative;
+		transition: color 0.3s;
+		background: none;
+		border: none;
+		cursor: pointer;
+		font-family: inherit;
+	}
+
+	.nav-item:hover {
+		color: #ff0844;
+		text-decoration: none !important;
+	}
+
+	.nav-item.active {
+		color: #ff0844;
+	}
+
+	.nav-item.active::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		left: 15px;
+		right: 15px;
+		height: 3px;
+		background: linear-gradient(111.41deg, #ff0844 24.85%, #ff8b67 95.39%);
+		border-radius: 2px;
+	}
+
+	.nav-item.dropdown-toggle::after {
+		display: none;
+	}
+
+	.icon-angle-down {
+		font-size: 12px;
+		transition: transform 0.3s;
+	}
+
+	/* Dropdown */
+	.dropdown-menu {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background: #fff;
+		border-radius: 8px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+		min-width: 180px;
+		padding: 8px 0;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(10px);
+		transition: all 0.3s;
+		z-index: 100;
+	}
+
+	.dropdown-menu.show {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	.dropdown-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.list-item {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.dropdown-item {
+		display: block;
+		padding: 10px 20px;
+		font-size: 14px;
+		color: #1a1a2e;
+		text-decoration: none !important;
+		transition: all 0.3s;
+	}
+
+	.dropdown-item:hover {
+		color: #ff0844;
+		background: #f5f5f5;
+		text-decoration: none !important;
+	}
+
+	/* Auth Buttons */
+	.header-auth {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.btn-auth {
+		padding: 8px 22px;
+		font-size: 13px;
+		font-weight: 600;
+		border-radius: 6px;
+		text-decoration: none;
+		transition: all 0.3s;
+	}
+
+	.btn-auth-signup {
+		background: #f9d423;
+		color: #1a1a2e;
+	}
+
+	.btn-auth-signup:hover {
+		box-shadow: 0 4px 15px rgba(249, 212, 35, 0.4);
+	}
+
+	.btn-auth-login {
+		background: transparent;
+		color: #1a1a2e;
+		border: 1.5px solid #1a1a2e;
+	}
+
+	.btn-auth-login:hover {
+		background: #1a1a2e;
+		color: #fff;
+	}
+
+	/* User Menu */
+	.user-menu {
+		position: relative;
+	}
+
+	.user-trigger {
+		display: block;
+		cursor: pointer;
+		background: none;
+		border: none;
+		padding: 0;
+	}
+
+	.user-avatar {
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		object-fit: cover;
+		cursor: pointer;
+	}
+
+	.user-avatar-placeholder {
+		background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-weight: 600;
+		font-size: 14px;
+	}
+
+	.user-dropdown {
+		position: absolute;
+		top: calc(100% + 10px);
+		right: 0;
+		background: #fff;
+		border-radius: 8px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+		min-width: 220px;
+		padding: 10px 0;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(10px);
+		transition: all 0.3s;
+		z-index: 100;
+	}
+
+	.user-dropdown.show {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	.user-info {
+		padding: 10px 15px;
+	}
+
+	.user-name {
+		display: block;
+		font-weight: 600;
+		color: #1a1a2e;
+		font-size: 14px;
+	}
+
+	.user-email {
+		display: block;
+		font-size: 12px;
+		color: #666;
+		margin-top: 2px;
+	}
+
+	.dropdown-divider {
+		height: 1px;
+		background: #eee;
+		margin: 8px 0;
+	}
+
+	.dropdown-link {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 10px 15px;
+		font-size: 14px;
+		color: #1a1a2e;
+		text-decoration: none !important;
+		background: none;
+		border: none;
+		width: 100%;
+		text-align: left;
+		cursor: pointer;
+		transition: background 0.2s;
+	}
+
+	.dropdown-link:hover {
+		background: #f5f5f5;
+		text-decoration: none !important;
+	}
+
+	.dropdown-link.logout {
+		color: #e63946;
+	}
+
+	.dropdown-link i {
+		width: 16px;
+		text-align: center;
+	}
+
+	/* Mobile Menu Button */
+	.header_trigger {
+		display: none;
+		flex-direction: column;
+		gap: 5px;
+		padding: 10px;
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	.header_trigger .line {
+		width: 24px;
+		height: 2px;
+		background: #1a1a2e;
+		transition: all 0.3s;
+	}
+
+	/* Mobile Styles */
+	@media (max-width: 991px) {
+		.header_trigger {
+			display: flex;
+		}
+
+		.header_nav {
+			position: fixed;
+			top: 70px;
+			left: 0;
+			right: 0;
+			background: #fff;
+			flex-direction: column;
+			padding: 20px;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+			transform: translateY(-100%);
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.3s;
+			max-height: calc(100vh - 70px);
+			overflow-y: auto;
+		}
+
+		.header_nav.show {
+			transform: translateY(0);
+			opacity: 1;
+			visibility: visible;
+		}
+
+		.header_nav-list {
+			flex-direction: column;
+			width: 100%;
+			gap: 0;
+		}
+
+		.header_nav-list_item {
+			width: 100%;
+		}
+
+		.nav-item {
+			width: 100%;
+			padding: 12px 15px;
+		}
+
+		.nav-item.active::after {
+			display: none;
+		}
+
+		.dropdown-menu {
+			position: static;
+			box-shadow: none;
+			padding-left: 20px;
+			opacity: 1;
+			visibility: visible;
+			transform: none;
+			display: none;
+		}
+
+		.dropdown-menu.show {
+			display: block;
+		}
+
+		.header-auth {
+			width: 100%;
+			flex-direction: column;
+			margin-top: 15px;
+			padding-top: 15px;
+			border-top: 1px solid #eee;
+		}
+
+		.btn-auth {
+			width: 100%;
+			text-align: center;
+		}
+
+		.user-menu {
+			width: 100%;
+		}
+
+		.user-dropdown {
+			position: static;
+			box-shadow: none;
+			opacity: 1;
+			visibility: visible;
+			transform: none;
+			display: none;
+			min-width: 100%;
+		}
+
+		.user-dropdown.show {
+			display: block;
+		}
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		console.log('[header.html] method: DOMContentLoaded');
+
+		// Mobile menu toggle
+		const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+		const headerNav = document.getElementById('header-nav');
+
+		if (mobileMenuBtn) {
+			mobileMenuBtn.addEventListener('click', function (e) {
+				console.log('[header.html] method: mobile-menu-btn.click');
+				e.stopPropagation();
+				headerNav.classList.toggle('show');
+			});
+		}
+
+		// Dropdown functionality
+		let currentOpenDropdown = null;
+
+		const dropdownToggles = document.querySelectorAll('[data-dropdown]');
+		console.log('[header.html] Found ' + dropdownToggles.length + ' dropdown toggles');
+
+		dropdownToggles.forEach((toggle) => {
+			console.log(
+				'[header.html] Adding listener to: ' + toggle.getAttribute('data-dropdown'),
+			);
+			toggle.addEventListener('click', function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+
+				const dropdownName = this.getAttribute('data-dropdown');
+				const dropdownMenu = document.querySelector(
+					`[data-dropdown-menu="${dropdownName}"]`,
+				);
+
+				console.log('[header.html] method: dropdown-toggle.click - ' + dropdownName);
+				console.log('[header.html] Found menu element: ' + (dropdownMenu ? 'yes' : 'no'));
+
+				// Close other dropdowns
+				document.querySelectorAll('.dropdown-menu, .user-dropdown').forEach((menu) => {
+					if (menu !== dropdownMenu) {
+						menu.classList.remove('show');
+					}
+				});
+
+				// Toggle current dropdown
+				if (dropdownMenu) {
+					const isOpening = !dropdownMenu.classList.contains('show');
+					dropdownMenu.classList.toggle('show');
+					currentOpenDropdown = isOpening ? dropdownMenu : null;
+					console.log(
+						'[header.html] Dropdown ' +
+							dropdownName +
+							' is now: ' +
+							(isOpening ? 'open' : 'closed'),
+					);
+				}
+			});
+		});
+
+		// Close dropdowns when clicking outside
+		document.addEventListener('click', function (e) {
+			if (!e.target.closest('.dropdown') && !e.target.closest('.user-menu')) {
+				const openDropdowns = document.querySelectorAll(
+					'.dropdown-menu.show, .user-dropdown.show',
+				);
+				openDropdowns.forEach((dropdown) => {
+					dropdown.classList.remove('show');
+				});
+				currentOpenDropdown = null;
+
+				// Close mobile menu if clicking outside
+				if (!e.target.closest('.header_nav') && !e.target.closest('.header_trigger')) {
+					headerNav.classList.remove('show');
+				}
+			}
+		});
+
+		// Close mobile menu when clicking nav items
+		const navItems = document.querySelectorAll('.header_nav a:not(.dropdown-toggle)');
+		navItems.forEach((item) => {
+			item.addEventListener('click', function () {
+				console.log('[header.html] Nav item clicked: ' + this.href);
+				headerNav.classList.remove('show');
+
+				// Close all dropdowns
+				const openDropdowns = document.querySelectorAll(
+					'.dropdown-menu.show, .user-dropdown.show',
+				);
+				openDropdowns.forEach((dropdown) => {
+					dropdown.classList.remove('show');
+				});
+				currentOpenDropdown = null;
+			});
+		});
+
+		// Log all dropdown links
+		const dropdownLinks = document.querySelectorAll('.dropdown-link');
+		console.log('[header.html] Found ' + dropdownLinks.length + ' dropdown links');
+		dropdownLinks.forEach((link) => {
+			console.log('[header.html] Dropdown link: ' + link.textContent.trim());
+		});
+	});
+</script>

@@ -1,5 +1,8 @@
 ### Lms Custom
 
+![Version](https://img.shields.io/badge/version-24.12.2025-blue)
+
+
 Lms Custom
 
 ### Installation

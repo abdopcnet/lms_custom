@@ -29,8 +29,18 @@ app_license = "mit"
 # app_include_js = "/assets/lms_custom/js/lms_custom.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/lms_custom/css/lms_custom.css"
-# web_include_js = "/assets/lms_custom/js/lms_custom.js"
+web_include_css = [
+    "/assets/lms_custom/css/preload.css",
+    "/assets/lms_custom/css/icomoon.css",
+    "/assets/lms_custom/css/libs.css",
+    "/assets/lms_custom/css/index.css"
+]
+
+web_include_js = [
+    "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js",
+    "/assets/lms_custom/js/common.min.js",
+    "/assets/lms_custom/js/index.min.js"
+]
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "lms_custom/public/scss/website"
@@ -57,7 +67,7 @@ app_license = "mit"
 # ----------
 
 # application home page (will override Website Settings)
-# home_page = "login"
+home_page = "home"
 
 # website user home page (by Role)
 # role_home_page = {
@@ -246,4 +256,3 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-
