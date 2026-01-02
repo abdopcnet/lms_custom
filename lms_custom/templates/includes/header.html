@@ -1,0 +1,392 @@
+<!-- Edison Template Style Header -->
+<header class="header" data-page="{{ route }}">
+	<div class="header-container">
+		<!-- Logo -->
+		<div class="logo header_logo">
+			<a href="/" class="logo-link">
+				<span class="logo_picture">
+					{% if brand_html %} {{ brand_html }} {% else %}
+					<img
+						src="/assets/lms_custom/svg/logo.svg"
+						alt="{{ brand_name or 'Learning' }}"
+					/>
+					{% endif %}
+				</span>
+				<span class="logo-text">
+					<span class="brand">{{ brand_name or 'Learning' }}</span>
+					<span class="text_secondary">courses</span>
+				</span>
+			</a>
+		</div>
+
+		<!-- Mobile menu button -->
+		<button class="header_trigger" type="button" id="mobile-menu-btn">
+			<span class="line"></span>
+			<span class="line"></span>
+			<span class="line"></span>
+		</button>
+
+		<!-- Navigation -->
+		<nav class="header_nav" id="header-nav">
+			<ul class="header_nav-list">
+				<li class="header_nav-list_item">
+					<a href="/" class="nav-item" data-page="home"> Home </a>
+				</li>
+				<li class="header_nav-list_item dropdown">
+					<a
+						href="/courses"
+						class="nav-link nav-item dropdown-toggle d-inline-flex align-items-center"
+						data-bs-toggle="collapse"
+						data-bs-target="#coursesMenu"
+						data-trigger="dropdown"
+						aria-expanded="false"
+						aria-controls="coursesMenu"
+						data-page="courses"
+					>
+						Courses
+						<i class="icon-angle-down icon"></i>
+					</a>
+					<div class="dropdown-menu collapse" id="coursesMenu">
+						<ul class="dropdown-list">
+							<li class="list-item" data-main="true">
+								<a
+									href="/courses"
+									class="dropdown-item nav-item"
+									data-page="courses"
+									data-main="true"
+									>All Courses</a
+								>
+							</li>
+							<li class="list-item">
+								<a
+									href="/batches"
+									class="dropdown-item nav-item"
+									data-page="batches"
+									>Batches</a
+								>
+							</li>
+							<li class="list-item">
+								<a
+									href="/certified-participants"
+									class="dropdown-item nav-item"
+									data-page="certifications"
+									>Certifications</a
+								>
+							</li>
+						</ul>
+					</div>
+				</li>
+				<li class="header_nav-list_item">
+					<a href="/job-openings" class="nav-item" data-page="jobs">Jobs</a>
+				</li>
+				<li class="header_nav-list_item">
+					<a href="/statistics" class="nav-item" data-page="statistics">Statistics</a>
+				</li>
+
+				<!-- More menu for logged in users -->
+				{% if frappe.session.user != 'Guest' %}
+				<li class="header_nav-list_item dropdown">
+					<a
+						href="/programs"
+						class="nav-link nav-item dropdown-toggle d-inline-flex align-items-center"
+						data-bs-toggle="collapse"
+						data-bs-target="#moreMenu"
+						data-trigger="dropdown"
+						aria-expanded="false"
+						aria-controls="moreMenu"
+						data-page="more"
+					>
+						More
+						<i class="icon-angle-down icon"></i>
+					</a>
+					<div class="dropdown-menu collapse" id="moreMenu">
+						<ul class="dropdown-list">
+							<li class="list-item" data-main="true">
+								<a
+									href="/programs"
+									class="dropdown-item nav-item"
+									data-page="programs"
+									data-main="true"
+									>Programs</a
+								>
+							</li>
+							<li class="list-item">
+								<a
+									href="/notifications"
+									class="dropdown-item nav-item"
+									data-page="notifications"
+									>Notifications</a
+								>
+							</li>
+							{% if is_moderator or is_instructor %}
+							<li class="list-item">
+								<a
+									href="/quizzes"
+									class="dropdown-item nav-item"
+									data-page="quizzes"
+									>Quizzes</a
+								>
+							</li>
+							<li class="list-item">
+								<a
+									href="/assignments"
+									class="dropdown-item nav-item"
+									data-page="assignments"
+									>Assignments</a
+								>
+							</li>
+							{% endif %}
+						</ul>
+					</div>
+				</li>
+				{% endif %}
+			</ul>
+
+			<!-- Auth buttons / User menu -->
+			<div class="header-auth">
+				{% if frappe.session.user == 'Guest' %}
+				<!-- Guest: Show Sign Up and Log In -->
+				<a href="/login#signup" class="btn-auth btn-auth-signup" id="signUpTrigger"
+					>Sign Up</a
+				>
+				<a href="/login" class="btn-auth btn-auth-login" id="logInTrigger">Log In</a>
+				{% else %}
+				<!-- Logged in: Show user menu -->
+				<div class="user-menu dropdown">
+					<a
+						href="#"
+						class="user-trigger d-inline-flex align-items-center"
+						data-bs-toggle="collapse"
+						data-bs-target="#userMenu"
+						data-trigger="dropdown"
+						aria-expanded="false"
+						aria-controls="userMenu"
+					>
+						{% if user_image %}
+						<img src="{{ user_image }}" class="user-avatar" alt="{{ full_name }}" />
+						{% else %}
+						<div class="user-avatar user-avatar-placeholder">
+							{{ full_name[0] if full_name else 'U' }}
+						</div>
+						{% endif %}
+					</a>
+					<div class="user-dropdown collapse" id="userMenu">
+						<div class="user-info">
+							<span class="user-name">{{ full_name or frappe.session.user }}</span>
+							<span class="user-email">{{ frappe.session.user }}</span>
+						</div>
+						<div class="dropdown-divider"></div>
+						<a
+							href="/lms/user/{{ frappe.session.user }}"
+							class="dropdown-link"
+							target="_blank"
+						>
+							<i class="icon-user"></i> My Profile
+						</a>
+						<a
+							href="https://lms.future-support.online/lms/"
+							class="dropdown-link"
+							target="_blank"
+						>
+							<i class="icon-book"></i> Go to LMS
+						</a>
+						{% if is_system_user %}
+						<a href="/app" class="dropdown-link">
+							<i class="icon-th-large"></i> Switch to Desk
+						</a>
+						{% endif %} {% if is_moderator %}
+						<a href="/settings" class="dropdown-link">
+							<i class="icon-cog"></i> Settings
+						</a>
+						{% endif %}
+						<div class="dropdown-divider"></div>
+						<a href="#" class="dropdown-link logout" id="logoutTrigger">
+							<i class="icon-sign-out"></i> Log Out
+						</a>
+					</div>
+				</div>
+				{% endif %}
+			</div>
+		</nav>
+	</div>
+</header>
+
+<!-- Link to external CSS file -->
+<link rel="stylesheet" href="/assets/lms_custom/css/header.css" />
+
+<!-- Header JavaScript for dropdown functionality -->
+<script>
+	(function () {
+		console.log('[header.html] Initializing header dropdowns');
+
+		// Wait for DOM to be ready
+		if (document.readyState === 'loading') {
+			document.addEventListener('DOMContentLoaded', initHeader);
+		} else {
+			initHeader();
+		}
+
+		function initHeader() {
+			// Mobile menu toggle
+			const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+			const headerNav = document.getElementById('header-nav');
+
+			if (mobileMenuBtn && headerNav) {
+				mobileMenuBtn.addEventListener('click', function () {
+					headerNav.classList.toggle('show');
+					console.log('[header.html] Mobile menu toggled');
+				});
+			}
+
+			// Handle all dropdowns (courses, more, user menu)
+			const dropdownTriggers = document.querySelectorAll('[data-trigger="dropdown"]');
+
+			dropdownTriggers.forEach(function (trigger) {
+				trigger.addEventListener('click', function (e) {
+					e.preventDefault();
+					e.stopPropagation();
+
+					const targetId = trigger.getAttribute('data-bs-target');
+					if (!targetId) return;
+
+					const dropdownMenu = document.querySelector(targetId);
+					if (!dropdownMenu) return;
+
+					const isOpen = dropdownMenu.classList.contains('show');
+
+					// Close all other dropdowns first
+					document
+						.querySelectorAll('.dropdown-menu.show, .user-dropdown.show')
+						.forEach(function (menu) {
+							if (menu !== dropdownMenu) {
+								menu.classList.remove('show');
+							}
+						});
+
+					// Toggle current dropdown
+					if (isOpen) {
+						dropdownMenu.classList.remove('show');
+						trigger.setAttribute('aria-expanded', 'false');
+					} else {
+						dropdownMenu.classList.add('show');
+						trigger.setAttribute('aria-expanded', 'true');
+					}
+
+					console.log('[header.html] Dropdown toggled:', targetId);
+				});
+			});
+
+			// Close dropdowns when clicking outside
+			document.addEventListener('click', function (e) {
+				const isDropdownTrigger = e.target.closest('[data-trigger="dropdown"]');
+				const isDropdownMenu = e.target.closest('.dropdown-menu, .user-dropdown');
+
+				if (!isDropdownTrigger && !isDropdownMenu) {
+					document
+						.querySelectorAll('.dropdown-menu.show, .user-dropdown.show')
+						.forEach(function (menu) {
+							menu.classList.remove('show');
+						});
+					document
+						.querySelectorAll('[data-trigger="dropdown"]')
+						.forEach(function (trigger) {
+							trigger.setAttribute('aria-expanded', 'false');
+						});
+				}
+			});
+
+			// Handle active page highlighting
+			const currentPath = window.location.pathname;
+			const navItems = document.querySelectorAll('.nav-item[data-page]');
+
+			navItems.forEach(function (item) {
+				const page = item.getAttribute('data-page');
+				const href = item.getAttribute('href');
+
+				// Check if current path matches
+				if (currentPath === href || currentPath.startsWith(href + '/')) {
+					item.classList.add('active');
+
+					// If it's inside a dropdown, also highlight the parent
+					const parentDropdown = item.closest('.dropdown');
+					if (parentDropdown) {
+						const parentTrigger = parentDropdown.querySelector(
+							'[data-trigger="dropdown"]',
+						);
+						if (parentTrigger) {
+							parentTrigger.classList.add('active');
+						}
+					}
+				}
+			});
+
+			// Override auth button clicks
+			setupAuthButtons();
+		}
+
+		function setupAuthButtons() {
+			// Override the Sign Up button click
+			const signUpBtn = document.getElementById('signUpTrigger');
+			if (signUpBtn) {
+				const newSignUpBtn = signUpBtn.cloneNode(true);
+				signUpBtn.parentNode.replaceChild(newSignUpBtn, signUpBtn);
+
+				newSignUpBtn.addEventListener('click', function (e) {
+					e.preventDefault();
+					e.stopPropagation();
+					console.log('[header.html] Sign Up clicked - redirecting to /login#signup');
+					window.location.href = '/login#signup';
+				});
+			}
+
+			// Override the Log In button click
+			const logInBtn = document.getElementById('logInTrigger');
+			if (logInBtn) {
+				const newLogInBtn = logInBtn.cloneNode(true);
+				logInBtn.parentNode.replaceChild(newLogInBtn, logInBtn);
+
+				newLogInBtn.addEventListener('click', function (e) {
+					e.preventDefault();
+					e.stopPropagation();
+					console.log('[header.html] Log In clicked - redirecting to /login');
+					window.location.href = '/login';
+				});
+			}
+
+			// Handle Logout button - Direct logout without confirmation
+			const logoutBtn = document.getElementById('logoutTrigger');
+			if (logoutBtn) {
+				logoutBtn.addEventListener('click', function (e) {
+					e.preventDefault();
+					e.stopPropagation();
+
+					console.log('[header.html] Logging out...');
+
+					// Use frappe.call to properly logout
+					if (typeof frappe !== 'undefined' && frappe.call) {
+						frappe.call({
+							method: 'logout',
+							callback: function () {
+								window.location.href = '/';
+							},
+						});
+					} else {
+						// Fallback to direct API call
+						fetch('/api/method/logout', {
+							method: 'POST',
+							headers: {
+								'X-Frappe-CSRF-Token': frappe.csrf_token || '',
+							},
+						})
+							.then(function () {
+								window.location.href = '/';
+							})
+							.catch(function () {
+								window.location.href = '/';
+							});
+					}
+				});
+			}
+		}
+	})();
+</script>
