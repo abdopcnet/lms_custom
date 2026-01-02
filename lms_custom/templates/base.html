@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{boot.lang}}">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}{{ title or brand_name or "Learning" }}{% endblock %}</title>
+
+        <!-- Frappe Meta and Favicon -->
+        {% block favicon %}
+        <link rel="shortcut icon" href="{{ (favicon or '/assets/frappe/images/frappe-favicon.svg') | abs_url }}" type="image/x-icon">
+        {% endblock %}
+
+        <!-- Initialize Frappe JavaScript Object -->
+        <script>
+            window.frappe = {};
+            frappe.ready_events = [];
+            frappe.ready = function(fn) {
+                frappe.ready_events.push(fn);
+            }
+            window.dev_server = {{ dev_server }};
+            window.socketio_port = {{ (frappe.socketio_port or 9000) }};
+        </script>
+
+        <!-- Frappe CSS and JS -->
+        {% block head_include %}{% endblock %}
+
+        <!-- Custom CSS -->
+        {% block style %}{% endblock %}
+    </head>
+    <body data-path="{{ pathname }}" data-base-url="{{ base_url }}">
+        <!-- Include Header (only for non-login pages) -->
+        {% if not (pathname == '/login' or 'login' in pathname) %}
+        {% include "lms_custom/templates/includes/header.html" %}
+        {% endif %}
+
+        <!-- Main Content -->
+        <main class="main-content">{% block content %}{% endblock %}</main>
+
+        <!-- Footer -->
+        {% block footer %}{% endblock %}
+
+        <!-- Frappe Boot Data and Scripts -->
+        <script>
+            frappe.boot = {{ boot | json }};
+            frappe.sys_defaults = frappe.boot.sysdefaults;
+        </script>
+        {{ include_script('frappe-web.bundle.js') }}
+
+        <!-- Frappe Scripts -->
+        {% block script %}{% endblock %}
+
+        <!-- Custom Scripts -->
+        {% block page_script %}{% endblock %}
+    </body>
+</html>
