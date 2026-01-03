@@ -22,7 +22,11 @@
 	display: flex;
 	align-items: center;
 	gap: 10px;
-	text-decoration: none;
+	text-decoration: none !important;
+}
+
+.logo-link:hover {
+	text-decoration: none !important;
 }
 
 .logo_picture {
@@ -83,7 +87,7 @@
 	display: inline-flex;
 	align-items: center;
 	gap: 5px;
-	padding: 10px 15px;
+	padding: 22px 15px;
 	font-size: 15px;
 	font-weight: 500;
 	color: #1a1a2e;
@@ -96,16 +100,7 @@
 	font-family: inherit;
 }
 
-.nav-item:hover {
-	color: #ff0844;
-	text-decoration: none !important;
-}
-
-.nav-item.active {
-	color: #ff0844;
-}
-
-.nav-item.active::after {
+.nav-item::after {
 	content: '';
 	position: absolute;
 	bottom: 0;
@@ -114,6 +109,25 @@
 	height: 3px;
 	background: linear-gradient(111.41deg, #ff0844 24.85%, #ff8b67 95.39%);
 	border-radius: 2px;
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
+}
+
+.nav-item:hover {
+	color: #ff0844;
+	text-decoration: none !important;
+}
+
+.nav-item:hover::after {
+	transform: scaleX(1);
+}
+
+.nav-item.active {
+	color: #ff0844;
+}
+
+.nav-item.active::after {
+	transform: scaleX(1);
 }
 
 .nav-item.dropdown-toggle::after {
@@ -222,6 +236,11 @@
 	background: none;
 	border: none;
 	padding: 0;
+	text-decoration: none !important;
+}
+
+.user-trigger:hover {
+	text-decoration: none !important;
 }
 
 .user-avatar {
@@ -230,6 +249,11 @@
 	border-radius: 50%;
 	object-fit: cover;
 	cursor: pointer;
+	text-decoration: none !important;
+}
+
+.user-avatar:hover {
+	text-decoration: none !important;
 }
 
 .user-avatar-placeholder {
