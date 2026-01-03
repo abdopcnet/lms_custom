@@ -70,47 +70,34 @@
 				</div>
 			</div>
 			<div class="footer_block col-sm-6 col-lg-auto" data-order="2">
-				<h5 class="footer_block-header">Information:</h5>
+				<h5 class="footer_block-header">Quick Links:</h5>
 				<ul class="footer_block-nav">
 					<li class="footer_block-nav_item">
-						<a class="link" href="/about">About This Project</a>
+						<a class="link" href="/about-us">About Us</a>
 					</li>
 					<li class="footer_block-nav_item">
-						<a class="link" href="/contact">Contact Us</a>
+						<a class="link" href="/lms/courses">All Courses</a>
 					</li>
 					<li class="footer_block-nav_item">
-						<a class="link" href="/courses">All Courses</a>
+						<a class="link" href="/contact">Contact</a>
 					</li>
 					<li class="footer_block-nav_item">
-						<a class="link" href="/blog">From the Blog</a>
-					</li>
-					<li class="footer_block-nav_item">
-						<a class="link" href="/library">Media Library</a>
-					</li>
-					<li class="footer_block-nav_item">
-						<a class="link" href="/faq">FAQ</a>
+						<a class="link" href="/blog">Blog</a>
 					</li>
 				</ul>
 			</div>
 			<div class="footer_block col-sm-6 col-lg-auto m-sm-0" data-order="3">
 				<h5 class="footer_block-header">Popular Courses:</h5>
+				{% set footer_courses = frappe.db.get_list('LMS Course', filters={'published': 1}, fields=['name', 'title'], order_by='enrollments desc', page_length=3) %}
 				<ul class="footer_block-list">
+					{% for course in footer_courses %}
 					<li class="footer_block-list_item d-flex align-items-baseline">
 						<span class="marker"></span>
-						<a class="link" href="/courses"
-							>Data Science Fundamentals CS with Python and SQL</a
-						>
+						<a class="link" href="/lms/courses/{{ course.name }}">
+							{{ course.title[:50] }}{{ '...' if course.title|length > 50 else '' }}
+						</a>
 					</li>
-					<li class="footer_block-list_item d-flex align-items-baseline">
-						<span class="marker"></span>
-						<a class="link" href="/courses"
-							>AWS Certified Developer - Associate 2020</a
-						>
-					</li>
-					<li class="footer_block-list_item d-flex align-items-baseline">
-						<span class="marker"></span>
-						<a class="link" href="/courses">How to Draw From Beginner to Master</a>
-					</li>
+					{% endfor %}
 				</ul>
 			</div>
 	<div class="footer_secondary">
