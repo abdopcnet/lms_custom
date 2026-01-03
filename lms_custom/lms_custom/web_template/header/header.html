@@ -1,3 +1,10 @@
+<!-- Load required CSS -->
+<style>
+	@import url('/assets/lms_custom/css/icomoon.css');
+	@import url('/assets/lms_custom/css/bootstrap-utilities.css');
+	@import url('/assets/lms_custom/css/header.css');
+</style>
+
 <!-- Edison Template Style Header -->
 <header class="header" data-page="{{ route }}">
 	<div class="header-container">
@@ -30,116 +37,20 @@
 		<nav class="header_nav" id="header-nav">
 			<ul class="header_nav-list">
 				<li class="header_nav-list_item">
-					<a href="/" class="nav-item" data-page="home"> Home </a>
-				</li>
-				<li class="header_nav-list_item dropdown">
-					<a
-						href="/courses"
-						class="nav-link nav-item dropdown-toggle d-inline-flex align-items-center"
-						data-bs-toggle="collapse"
-						data-bs-target="#coursesMenu"
-						data-trigger="dropdown"
-						aria-expanded="false"
-						aria-controls="coursesMenu"
-						data-page="courses"
-					>
-						Courses
-						<i class="icon-angle-down icon"></i>
-					</a>
-					<div class="dropdown-menu collapse" id="coursesMenu">
-						<ul class="dropdown-list">
-							<li class="list-item" data-main="true">
-								<a
-									href="/courses"
-									class="dropdown-item nav-item"
-									data-page="courses"
-									data-main="true"
-									>All Courses</a
-								>
-							</li>
-							<li class="list-item">
-								<a
-									href="/batches"
-									class="dropdown-item nav-item"
-									data-page="batches"
-									>Batches</a
-								>
-							</li>
-							<li class="list-item">
-								<a
-									href="/certified-participants"
-									class="dropdown-item nav-item"
-									data-page="certifications"
-									>Certifications</a
-								>
-							</li>
-						</ul>
-					</div>
+					<a href="/" class="nav-item" data-page="home">Home</a>
 				</li>
 				<li class="header_nav-list_item">
-					<a href="/job-openings" class="nav-item" data-page="jobs">Jobs</a>
+					<a href="/about" class="nav-item" data-page="about">About Us</a>
 				</li>
 				<li class="header_nav-list_item">
-					<a href="/statistics" class="nav-item" data-page="statistics">Statistics</a>
+					<a href="/contact" class="nav-item" data-page="contact">Contacts</a>
 				</li>
-
-				<!-- More menu for logged in users -->
-				{% if frappe.session.user != 'Guest' %}
-				<li class="header_nav-list_item dropdown">
-					<a
-						href="/programs"
-						class="nav-link nav-item dropdown-toggle d-inline-flex align-items-center"
-						data-bs-toggle="collapse"
-						data-bs-target="#moreMenu"
-						data-trigger="dropdown"
-						aria-expanded="false"
-						aria-controls="moreMenu"
-						data-page="more"
-					>
-						More
-						<i class="icon-angle-down icon"></i>
-					</a>
-					<div class="dropdown-menu collapse" id="moreMenu">
-						<ul class="dropdown-list">
-							<li class="list-item" data-main="true">
-								<a
-									href="/programs"
-									class="dropdown-item nav-item"
-									data-page="programs"
-									data-main="true"
-									>Programs</a
-								>
-							</li>
-							<li class="list-item">
-								<a
-									href="/notifications"
-									class="dropdown-item nav-item"
-									data-page="notifications"
-									>Notifications</a
-								>
-							</li>
-							{% if is_moderator or is_instructor %}
-							<li class="list-item">
-								<a
-									href="/quizzes"
-									class="dropdown-item nav-item"
-									data-page="quizzes"
-									>Quizzes</a
-								>
-							</li>
-							<li class="list-item">
-								<a
-									href="/assignments"
-									class="dropdown-item nav-item"
-									data-page="assignments"
-									>Assignments</a
-								>
-							</li>
-							{% endif %}
-						</ul>
-					</div>
+				<li class="header_nav-list_item">
+					<a href="/blog" class="nav-item" data-page="blog">Blog</a>
 				</li>
-				{% endif %}
+				<li class="header_nav-list_item">
+					<a href="/courses" class="nav-item" data-page="courses">Courses</a>
+				</li>
 			</ul>
 
 			<!-- Auth buttons / User menu -->
@@ -176,7 +87,11 @@
 							<span class="user-email">{{ frappe.session.user }}</span>
 						</div>
 						<div class="dropdown-divider"></div>
-						<a href="/lms/user/{{ frappe.session.user }}" class="dropdown-link" target="_blank">
+						<a
+							href="/lms/user/{{ frappe.session.user }}"
+							class="dropdown-link"
+							target="_blank"
+						>
 							<i class="icon-user"></i> My Profile
 						</a>
 						<a
@@ -206,9 +121,6 @@
 		</nav>
 	</div>
 </header>
-
-<!-- Link to external CSS file -->
-<link rel="stylesheet" href="/assets/lms_custom/css/header.css" />
 
 <!-- Header JavaScript for dropdown functionality -->
 <script>
