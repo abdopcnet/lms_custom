@@ -1,0 +1,17 @@
+{
+ "__islocal": true,
+ "__unsaved": 1,
+ "creation": "2026-01-03 09:33:33.008359",
+ "docstatus": 0,
+ "doctype": "Web Template",
+ "fields": [],
+ "idx": 0,
+ "modified": "2026-01-03 09:33:33.008359",
+ "modified_by": "Administrator",
+ "module": "Lms Custom",
+ "name": "promo",
+ "owner": "Administrator",
+ "standard": 1,
+ "template": "",
+ "type": "Component"
+}
