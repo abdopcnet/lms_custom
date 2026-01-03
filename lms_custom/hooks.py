@@ -33,7 +33,6 @@ app_license = "mit"
 # web_include_css = [
 #     "/assets/lms_custom/css/preload.min.css",
 #     "/assets/lms_custom/css/icomoon.css",
-#     "/assets/lms_custom/css/libs.min.css",
 #     "/assets/lms_custom/css/index.min.css"
 # ]
 
@@ -67,7 +66,7 @@ app_license = "mit"
 # ----------
 # -------------------------------
 # # application home page (will override Website Settings)
-home_page = "index"
+# home_page = "home"
 
 # # Website route rules to override LMS pages
 # website_route_rules = [
@@ -81,9 +80,9 @@ home_page = "index"
 
 # Override LMS backend functions with custom templates
 # But keep using LMS data/API
-update_website_context = [
-    "lms_custom.utils.update_website_context",
-]
+# update_website_context = [
+#     "lms_custom.utils.update_website_context",
+# ]
 # ------------
 # website user home page (by Role)
 # role_home_page = {
