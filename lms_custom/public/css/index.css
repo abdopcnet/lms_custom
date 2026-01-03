@@ -500,7 +500,7 @@ main > .underlay:after {
 	z-index: 1;
 }
 
-.card_media .icon {
+.card_media .icon0 {
 	position: relative;
 	z-index: 2;
 	color: #fff;
@@ -534,7 +534,7 @@ main > .underlay:after {
 	opacity: 1;
 }
 
-.card:hover .card_media .icon {
+.card:hover .card_media .icon0 {
 	color: #3d53eb;
 }
 
@@ -1870,6 +1870,7 @@ main > .underlay {
 	-webkit-transition: 0.3s ease-in-out;
 	-o-transition: 0.3s ease-in-out;
 	transition: 0.3s ease-in-out;
+	max-height: 480px;
 }
 
 .popular_list-card .course-card_wrapper .top {
@@ -1896,6 +1897,13 @@ main > .underlay {
 
 .popular_list-card .course-card_wrapper .bottom_list-item_text {
 	width: calc(100% - 12px);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	line-clamp: 1;
+	max-height: 3.2em;
 }
 
 .popular_list-card .course-card_wrapper:hover {
