@@ -88,7 +88,6 @@
 			</div>
 			<div class="footer_block col-sm-6 col-lg-auto m-sm-0" data-order="3">
 				<h5 class="footer_block-header">Popular Courses:</h5>
-				{% set footer_courses = frappe.db.get_list('LMS Course', filters={'published': 1}, fields=['name', 'title'], order_by='enrollments desc', page_length=3) %}
 				<ul class="footer_block-list">
 					{% for course in footer_courses %}
 					<li class="footer_block-list_item d-flex align-items-baseline">
