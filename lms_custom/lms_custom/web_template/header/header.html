@@ -270,17 +270,17 @@
 
 					console.log('[header.html] Logging out...');
 
-					// Use frappe.call to properly logout
+					// Use frappe.call to properly logout with correct method path
 					if (typeof frappe !== 'undefined' && frappe.call) {
 						frappe.call({
-							method: 'logout',
+							method: 'frappe.handler.logout',
 							callback: function () {
 								window.location.href = '/';
 							},
 						});
 					} else {
-						// Fallback to direct API call
-						fetch('/api/method/logout', {
+						// Fallback to direct API call with correct method path
+						fetch('/api/method/frappe.handler.logout', {
 							method: 'POST',
 							headers: {
 								'X-Frappe-CSRF-Token': frappe.csrf_token || '',
