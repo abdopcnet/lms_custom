@@ -9,10 +9,6 @@
 			</p>
 		</div>
 
-		{% set popular_categories = frappe.db.sql("SELECT c.category, COUNT(c.name) as course_count
-		FROM `tabLMS Course` c WHERE c.published = 1 AND c.category IS NOT NULL AND c.category !=
-		'' GROUP BY c.category ORDER BY course_count DESC LIMIT 6", as_dict=True) %}
-
 		<ul
 			class="popular_tags courses-tags d-flex flex-wrap align-items-center justify-content-center"
 		>
@@ -25,17 +21,8 @@
 			{% endfor %}
 		</ul>
 
-		{% set popular_courses = frappe.db.get_list('LMS Course', filters={'published': 1},
-		fields=['name', 'title', 'short_introduction', 'image', 'category', 'enrollments',
-		'rating', 'lessons', 'course_price', 'currency', 'paid_course', 'card_gradient'],
-		order_by='enrollments desc', page_length=3) %}
-
 		<ul class="popular_list d-md-flex flex-wrap">
-			{% for course in popular_courses %} {% set instructor_email =
-			frappe.db.get_value('Course Instructor', {'parent': course.name, 'parenttype': 'LMS
-			Course'}, 'instructor') %} {% set instructor_name = frappe.db.get_value('User',
-			instructor_email, 'full_name') if instructor_email else 'Unknown' %} {% set
-			rating_filled = (course.rating or 0)|int %} {% set rating_empty = 5 - rating_filled %}
+			{% for course in popular_courses %}
 
 			<li
 				class="popular_list-card course-card col-12 col-md-6 col-lg-4"
@@ -54,17 +41,17 @@
 						<div class="wrapper d-flex flex-column">
 							<h5 class="top_title">{{ course.title }}</h5>
 							<ul class="rating d-flex align-items-center">
-								{% for i in range(rating_filled) %}
+								{% for i in range(course.rating_filled) %}
 								<li class="rating_star">
 									<i class="icon-star icon"></i>
 								</li>
-								{% endfor %} {% for i in range(rating_empty) %}
+								{% endfor %} {% for i in range(course.rating_empty) %}
 								<li class="rating_star rating_star--empty">
 									<i class="icon-star icon"></i>
 								</li>
 								{% endfor %}
 							</ul>
-							<span class="top_author">by {{ instructor_name }}</span>
+							<span class="top_author">by {{ course.instructor_name }}</span>
 							<span class="top_details">{{ course.lessons or 0 }} lectures</span>
 						</div>
 					</div>
