@@ -42,7 +42,7 @@
 .footer_block .logo--footer .text .brand {
 	display: block;
 	font-family: 'Barlow Semi Condensed', sans-serif;
-	color: #2b3543;
+	color: var(--theme-text);
 	font-size: 32px;
 	line-height: 1.3;
 	margin-bottom: -7px;
@@ -79,7 +79,7 @@
 }
 
 .footer_block-list_item .marker {
-	background: #000;
+	background: var(--theme-text);
 	border-radius: 50%;
 	width: 8px;
 	height: 8px;
@@ -94,7 +94,7 @@
 .footer_block-socials {
 	font-size: 20px;
 	margin: 20px 0 5px;
-	color: #29323c;
+	color: var(--theme-text);
 }
 
 .footer_block-socials_item {
@@ -149,8 +149,8 @@
 
 .footer_block .link:focus,
 .footer_block .link:hover {
-	color: #3d53eb;
-	text-shadow: 0.5px 0 #3d53eb;
+	color: var(--theme-primary);
+	text-shadow: 0.5px 0 var(--theme-primary);
 }
 
 .footer_block .link--contacts {
@@ -175,19 +175,20 @@
 
 .footer_block .link--contacts:focus .icon,
 .footer_block .link--contacts:hover .icon {
-	color: #3d53eb;
+	color: var(--theme-primary);
 }
 
 /* Footer Text (description) */
 .footer_block-text {
 	font-weight: 400;
-	color: #485870;
+	color: var(--theme-text);
+	opacity: 0.7;
 	line-height: 1.6;
 }
 
 /* Footer Secondary Section (Bottom) */
 .footer_secondary {
-	color: #000;
+	color: var(--theme-text);
 	padding: 30px 0 60px;
 }
 
