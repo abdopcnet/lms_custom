@@ -2,10 +2,10 @@
 <section class="popular">
 	<div class="container">
 		<div class="popular_header">
-			<h2 class="popular_header-title" data-aos="fade-up">Popular courses</h2>
+			<h2 class="popular_header-title" data-aos="fade-up">{{ _("Popular courses") }}</h2>
 			<p class="popular_header-text" data-aos="fade-down">
-				Discover the most popular courses in our learning platform. Join thousands of
-				students and start your learning journey today.
+				{{ _("Discover the most popular courses in our learning platform. Join thousands of
+				students and start your learning journey today.") }}
 			</p>
 		</div>
 
@@ -61,7 +61,7 @@
 							>{{ course.currency }} {{ course.course_price }}</span
 						>
 						{% else %}
-						<span class="pricing_price h5">Free</span>
+						<span class="pricing_price h5">{{ _("Free") }}</span>
 						{% endif %}
 					</div>
 					<div class="bottom">
@@ -69,14 +69,14 @@
 							<li class="bottom_list-item d-flex align-items-start">
 								<i class="bottom_list-item_marker icon-circle"></i>
 								<p class="bottom_list-item_text">
-									{{ course.short_introduction or 'Learn from the best
-									instructors' }}
+									{{ course.short_introduction or _('Learn from the best
+									instructors') }}
 								</p>
 							</li>
 							<li class="bottom_list-item d-flex align-items-start">
 								<i class="bottom_list-item_marker icon-circle"></i>
 								<p class="bottom_list-item_text">
-									{{ course.enrollments or 0 }} students enrolled
+									{{ course.enrollments or 0 }} {{ _("students enrolled") }}
 								</p>
 							</li>
 						</ul>
@@ -84,7 +84,8 @@
 							class="bottom_btn btn btn--bordered btn--arrow"
 							href="/lms/courses/{{ course.name }}"
 						>
-							View course details <i class="icon-arrow-right-solid icon"></i>
+							{{ _("View course details") }}
+							<i class="icon-arrow-right-solid icon"></i>
 						</a>
 					</div>
 				</div>
@@ -92,7 +93,7 @@
 			{% endfor %}
 		</ul>
 		<a class="popular_btn btn btn--gradient" href="/lms/courses">
-			<span class="text">Learn more</span>
+			<span class="text">{{ _("Learn more") }}</span>
 		</a>
 	</div>
 </section>
