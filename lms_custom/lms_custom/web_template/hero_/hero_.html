@@ -1,83 +1,110 @@
-<!-- Load required CSS -->
-<style>
-	@import url('/assets/lms_custom/css/icomoon.css');
-	@import url('/assets/lms_custom/css/bootstrap-utilities.css');
-	@import url('/assets/lms_custom/css/index.css');
-</style>
-
-<!-- Load Lottie Player before usage -->
-<script>
-	// Load lottie-player if not already loaded
-	if (typeof window.LottiePlayer === 'undefined') {
-		(function () {
-			var script = document.createElement('script');
-			script.src =
-				'https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js';
-			script.async = false;
-			document.head.appendChild(script);
-		})();
-	}
-</script>
-
 <!-- hero section start -->
-<div class="underlay"></div>
 <section class="hero">
-	<div class="container d-lg-flex align-items-center">
-		<div class="hero_content">
-			<h1 class="hero_content-header" data-aos="fade-up">Large educational programs</h1>
-			<div class="hero_content-rating d-flex flex-column flex-sm-row align-items-center">
-				<p class="text" data-aos="fade-left">
-					Our course is rated excellent by over 42,000 people
-				</p>
-				<div class="wrapper" data-aos="fade-left" data-aos-delay="50">
-					<ul class="rating d-flex align-items-center">
-						<li class="rating_star">
-							<i class="icon-star icon"></i>
-						</li>
-						<li class="rating_star">
-							<i class="icon-star icon"></i>
-						</li>
-						<li class="rating_star">
-							<i class="icon-star icon"></i>
-						</li>
-						<li class="rating_star">
-							<i class="icon-star icon"></i>
-						</li>
-						<li class="rating_star">
-							<i class="icon-star icon"></i>
-						</li>
-					</ul>
+	{%- set slideshow = frappe.get_doc('Website Slideshow', 'Hero Section') -%} {%- set slides =
+	slideshow.slideshow_items -%} {%- set slideshow_id = 'hero-slideshow' -%} {{ slideshow.header
+	or '' }}
+
+	<div id="{{ slideshow_id }}" class="carousel slide hero-slideshow" data-ride="carousel">
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner hero-carousel-inner">
+			{% for slide in slides %}
+			<div class="{% if slide.idx == 1 %} active {% endif %} item carousel-item hero-slide">
+				<div class="hero-slide-image">
+					<img
+						class="d-block w-100"
+						src="{{ slide.image }}"
+						alt="{{ slide.heading or 'Slide' }}"
+					/>
+					<div class="hero-overlay"></div>
 				</div>
 			</div>
-			<p class="hero_content-text" data-aos="fade-up" data-aos-delay="50">
-				Today, more than 48,000 people have already studied at our university in various
-				fields: programming, photography, marketing and management
-			</p>
-			<div class="hero_content-action d-flex flex-wrap">
-				<a class="btn btn--gradient" href="#" data-aos="fade-left">
-					<span class="text">Try for Free</span>
-				</a>
-				<a
-					class="btn btn--highlight"
-					href="pricing.html"
-					data-aos="fade-left"
-					data-aos-delay="50"
+			{% endfor %}
+		</div>
+
+		<!-- Controls positioned at bottom-right -->
+		<div class="hero-controls-bottom-right">
+			<!-- Left and Right Controls (Arrows) -->
+			<a
+				class="carousel-control-custom carousel-control-prev"
+				href="#{{ slideshow_id }}"
+				role="button"
+				data-slide="prev"
+			>
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="sr-only">Previous</span>
+			</a>
+
+			<!-- Indicators (dots) -->
+			<ol class="carousel-indicators-custom">
+				{% for slide in slides %}
+				<li
+					data-target="#{{ slideshow_id }}"
+					data-slide-to="{{ slide.idx - 1 }}"
+					class="{% if slide.idx == 1 %}active{% endif %}"
+				></li>
+				{% endfor %}
+			</ol>
+
+			<a
+				class="carousel-control-custom carousel-control-next"
+				href="#{{ slideshow_id }}"
+				role="button"
+				data-slide="next"
+			>
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="sr-only">Next</span>
+			</a>
+		</div>
+
+		<!-- CTA Content Overlay -->
+		<div class="hero-content">
+			<div class="hero-content-inner">
+				{% for slide in slides %}
+				<div
+					class="hero-text-slide {% if slide.idx == 1 %}active{% endif %}"
+					data-slide-index="{{ slide.idx - 1 }}"
 				>
-					<span class="text">See Pricing Plans</span>
-				</a>
+					{% if slide.heading %}
+					<h1 class="hero-heading">{{ slide.heading }}</h1>
+					{% endif %} {% if slide.description %}
+					<p class="hero-description">{{ slide.description }}</p>
+					{% endif %}
+					<div class="hero-cta-buttons">
+						{% if slide.url %}
+						<a href="{{ slide.url }}" class="btn btn-primary btn-lg">Learn More</a>
+						{% endif %}
+						<a href="/courses" class="btn btn-outline-light btn-lg">View Courses</a>
+					</div>
+				</div>
+				{% endfor %}
 			</div>
 		</div>
-		<div class="hero_media col-lg-6">
-			<lottie-player
-				src="/assets/lms_custom/lottie/hero.json"
-				background="transparent"
-				speed="1"
-				style="width: 100%; height: 100%"
-				loop
-				autoplay
-			></lottie-player>
-		</div>
 	</div>
+
+	<script>
+		frappe.ready(function () {
+			var carousel = $('#{{ slideshow_id }}');
+			carousel.carousel({
+				interval: 5000,
+				keyboard: true,
+				pause: 'hover',
+			});
+
+			// Sync text slides and dots with image slides
+			carousel.on('slide.bs.carousel', function (e) {
+				var nextIndex = $(e.relatedTarget).index();
+
+				// Update text slides
+				$('.hero-text-slide').removeClass('active');
+				$('.hero-text-slide[data-slide-index="' + nextIndex + '"]').addClass('active');
+
+				// Update dots/indicators
+				$('.carousel-indicators-custom li').removeClass('active');
+				$('.carousel-indicators-custom li[data-slide-to="' + nextIndex + '"]').addClass(
+					'active',
+				);
+			});
+		});
+	</script>
 </section>
 <!-- hero section end -->
-
