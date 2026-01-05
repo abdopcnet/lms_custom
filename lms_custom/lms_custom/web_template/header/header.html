@@ -1,7 +1,5 @@
 <!-- Load required CSS -->
 <style>
-	@import url('/assets/lms_custom/css/icomoon.css');
-	@import url('/assets/lms_custom/css/bootstrap-utilities.css');
 	@import url('/assets/lms_custom/css/header.css');
 </style>
 
@@ -12,16 +10,14 @@
 		<div class="logo header_logo">
 			<a href="/" class="logo-link">
 				<span class="logo_picture">
-					{% if brand_html %} {{ brand_html }} {% else %}
+					{% if brand_html %} {{ brand_html }} {% elif banner_image %}
+					<img src="{{ banner_image }}" alt="{{ brand_name or 'Learning' }}" />
+					{% else %}
 					<img
 						src="/assets/lms_custom/svg/logo.svg"
 						alt="{{ brand_name or 'Learning' }}"
 					/>
 					{% endif %}
-				</span>
-				<span class="logo-text">
-					<span class="brand">{{ brand_name or 'Learning' }}</span>
-					<span class="text_secondary">courses</span>
 				</span>
 			</a>
 		</div>
