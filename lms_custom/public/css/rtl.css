@@ -1,0 +1,191 @@
+/* RTL (Right-to-Left) CSS for Arabic Language */
+
+/* Set direction to RTL when language is Arabic */
+html[lang='ar'],
+html[dir='rtl'] {
+	direction: rtl;
+}
+
+html[lang='ar'] body,
+html[dir='rtl'] body {
+	text-align: right;
+	direction: rtl;
+}
+
+/* Flip float directions */
+html[lang='ar'] .float-start,
+html[dir='rtl'] .float-start {
+	float: right !important;
+}
+
+html[lang='ar'] .float-end,
+html[dir='rtl'] .float-end {
+	float: left !important;
+}
+
+/* Flip text alignment */
+html[lang='ar'] .text-start,
+html[dir='rtl'] .text-start {
+	text-align: right !important;
+}
+
+html[lang='ar'] .text-end,
+html[dir='rtl'] .text-end {
+	text-align: left !important;
+}
+
+/* Flip margin directions */
+html[lang='ar'] .ms-auto,
+html[dir='rtl'] .ms-auto {
+	margin-right: auto !important;
+	margin-left: 0 !important;
+}
+
+html[lang='ar'] .me-auto,
+html[dir='rtl'] .me-auto {
+	margin-left: auto !important;
+	margin-right: 0 !important;
+}
+
+/* Flip padding directions */
+html[lang='ar'] .ps-1,
+html[dir='rtl'] .ps-1 {
+	padding-right: 0.25rem !important;
+	padding-left: 0;
+}
+html[lang='ar'] .ps-2,
+html[dir='rtl'] .ps-2 {
+	padding-right: 0.5rem !important;
+	padding-left: 0;
+}
+html[lang='ar'] .ps-3,
+html[dir='rtl'] .ps-3 {
+	padding-right: 1rem !important;
+	padding-left: 0;
+}
+html[lang='ar'] .ps-4,
+html[dir='rtl'] .ps-4 {
+	padding-right: 1.5rem !important;
+	padding-left: 0;
+}
+html[lang='ar'] .ps-5,
+html[dir='rtl'] .ps-5 {
+	padding-right: 3rem !important;
+	padding-left: 0;
+}
+
+html[lang='ar'] .pe-1,
+html[dir='rtl'] .pe-1 {
+	padding-left: 0.25rem !important;
+	padding-right: 0;
+}
+html[lang='ar'] .pe-2,
+html[dir='rtl'] .pe-2 {
+	padding-left: 0.5rem !important;
+	padding-right: 0;
+}
+html[lang='ar'] .pe-3,
+html[dir='rtl'] .pe-3 {
+	padding-left: 1rem !important;
+	padding-right: 0;
+}
+html[lang='ar'] .pe-4,
+html[dir='rtl'] .pe-4 {
+	padding-left: 1.5rem !important;
+	padding-right: 0;
+}
+html[lang='ar'] .pe-5,
+html[dir='rtl'] .pe-5 {
+	padding-left: 3rem !important;
+	padding-right: 0;
+}
+
+/* Flip border radius */
+html[lang='ar'] .rounded-start,
+html[dir='rtl'] .rounded-start {
+	border-top-left-radius: 0 !important;
+	border-bottom-left-radius: 0 !important;
+	border-top-right-radius: var(--bs-border-radius) !important;
+	border-bottom-right-radius: var(--bs-border-radius) !important;
+}
+
+html[lang='ar'] .rounded-end,
+html[dir='rtl'] .rounded-end {
+	border-top-right-radius: 0 !important;
+	border-bottom-right-radius: 0 !important;
+	border-top-left-radius: var(--bs-border-radius) !important;
+	border-bottom-left-radius: var(--bs-border-radius) !important;
+}
+
+/* Navigation and menu adjustments */
+html[lang='ar'] .navbar-nav,
+html[dir='rtl'] .navbar-nav {
+	flex-direction: row-reverse;
+}
+
+html[lang='ar'] .dropdown-menu,
+html[dir='rtl'] .dropdown-menu {
+	right: 0;
+	left: auto;
+}
+
+/* List items */
+html[lang='ar'] ul,
+html[lang='ar'] ol,
+html[dir='rtl'] ul,
+html[dir='rtl'] ol {
+	padding-right: 2rem;
+	padding-left: 0;
+}
+
+/* Forms */
+html[lang='ar'] .form-check,
+html[dir='rtl'] .form-check {
+	padding-right: 1.5em;
+	padding-left: 0;
+}
+
+html[lang='ar'] .form-check-input,
+html[dir='rtl'] .form-check-input {
+	float: right;
+	margin-right: -1.5em;
+	margin-left: 0;
+}
+
+/* Icons that should flip */
+html[lang='ar'] .icon-flip,
+html[dir='rtl'] .icon-flip {
+	transform: scaleX(-1);
+}
+
+/* Breadcrumb */
+html[lang='ar'] .breadcrumb-item + .breadcrumb-item::before,
+html[dir='rtl'] .breadcrumb-item + .breadcrumb-item::before {
+	float: right;
+	padding-left: var(--bs-breadcrumb-item-padding-x);
+	padding-right: 0;
+	content: var(--bs-breadcrumb-divider, '/');
+}
+
+/* Modal */
+html[lang='ar'] .modal-header .btn-close,
+html[dir='rtl'] .modal-header .btn-close {
+	margin: -0.5rem auto -0.5rem -0.5rem;
+}
+
+/* Cards */
+html[lang='ar'] .card-img-left,
+html[dir='rtl'] .card-img-left {
+	border-top-right-radius: calc(0.25rem - 1px);
+	border-bottom-right-radius: calc(0.25rem - 1px);
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+/* Tooltips and Popovers */
+html[lang='ar'] .tooltip,
+html[lang='ar'] .popover,
+html[dir='rtl'] .tooltip,
+html[dir='rtl'] .popover {
+	text-align: right;
+}
