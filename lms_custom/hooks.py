@@ -25,21 +25,18 @@ app_license = "mit"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/lms_custom/css/lms_custom.css"
-# app_include_js = "/assets/lms_custom/js/lms_custom.js"
+app_include_css = "/assets/lms_custom/css/rtl.css"
+app_include_js = "/assets/lms_custom/js/rtl_setup.js"
 
 # ---------------
 # include js, css files in header of web template
-# web_include_css = [
-#     "/assets/lms_custom/css/preload.min.css",
-#     "/assets/lms_custom/css/icomoon.css",
-#     "/assets/lms_custom/css/index.min.css"
-# ]
+web_include_css = [
+	"/assets/lms_custom/css/rtl.css"
+]
 
-# web_include_js = [
-#     "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js",
-#     "https://unpkg.com/aos@2.3.1/dist/aos.js",
-# ]
+web_include_js = [
+    "/assets/lms_custom/js/rtl_setup.js"
+]
 # --------------------
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "lms_custom/public/scss/website"
@@ -67,6 +64,9 @@ app_license = "mit"
 # -------------------------------
 # # application home page (will override Website Settings)
 # home_page = "home"
+
+# Override home page for website users - return home page instead of /lms
+get_website_user_home_page = "lms_custom.utils.get_website_user_home_page"
 
 # # Website route rules to override LMS pages
 # website_route_rules = [
@@ -169,6 +169,12 @@ app_license = "mit"
 # 		"on_trash": "method"
 # 	}
 # }
+
+# Login Events
+# -------------
+# Override LMS login redirect to go to home page instead of /lms
+# Using on_session_creation because it runs AFTER set_user_info
+on_session_creation = "lms_custom.utils.on_session_creation"
 
 # Scheduled Tasks
 # ---------------
