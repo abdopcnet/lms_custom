@@ -1,0 +1,94 @@
+<!-- Blog & Articles Section -->
+<section class="blog-section">
+	<div class="container">
+		<!-- Section Header -->
+		<div class="row mb-5">
+			<div class="col-12 text-center">
+				<div class="blog-section-label text-primary mb-3">
+					{{ section_label or "Our Latest news" }}
+				</div>
+				<h2 class="blog-section-heading">{{ section_heading or "Blog & Articles" }}</h2>
+				{% if section_description %}
+				<p class="blog-section-description">{{ section_description }}</p>
+				{% endif %}
+			</div>
+		</div>
+
+		<!-- Blog Cards Grid -->
+		<div class="row">
+			{% set blog_posts = frappe.get_all("Blog Post", filters={"published": 1},
+			fields=["name", "title", "blog_intro", "meta_image", "published_on", "blogger",
+			"route", "blog_category"], order_by="published_on desc", limit=3 ) %} {% if blog_posts
+			%} {% for post in blog_posts %}
+			<div class="col-lg-4 col-md-6 mb-4">
+				<article class="blog-card">
+					<!-- Blog Image -->
+					<div class="blog-card-image">
+						<a href="/{{ post.route }}">
+							<img
+								src="{{ post.meta_image or '/assets/frappe/images/default-blog.png' }}"
+								alt="{{ post.title }}"
+								class="img-fluid"
+							/>
+						</a>
+						{% if post.blog_category %}
+						<div class="blog-card-category">{{ post.blog_category }}</div>
+						{% endif %}
+					</div>
+
+					<!-- Blog Content -->
+					<div class="blog-card-content">
+						<!-- Meta Info -->
+						<div class="blog-card-meta">
+							{% if post.published_on %}
+							<span class="blog-meta-date">
+								<i class="fa fa-calendar"></i> {{
+								frappe.utils.format_date(post.published_on, "MMM dd, yyyy") }}
+							</span>
+							{% endif %} {% if post.blogger %}
+							<span class="blog-meta-author">
+								<i class="fa fa-user"></i> {{ frappe.db.get_value("Blogger",
+								post.blogger, "full_name") or post.blogger }}
+							</span>
+							{% endif %}
+						</div>
+
+						<!-- Title -->
+						<h3 class="blog-card-title">
+							<a href="/{{ post.route }}">{{ post.title }}</a>
+						</h3>
+
+						<!-- Excerpt -->
+						<p class="blog-card-excerpt">
+							{{ post.blog_intro[:150] + "..." if post.blog_intro and
+							post.blog_intro|length > 150 else post.blog_intro or "Read more about
+							this article..." }}
+						</p>
+
+						<!-- Read More Link -->
+						<a href="/{{ post.route }}" class="blog-read-more">
+							Read More <i class="fa fa-arrow-right"></i>
+						</a>
+					</div>
+				</article>
+			</div>
+			{% endfor %} {% else %}
+			<!-- No Blog Posts Message -->
+			<div class="col-12 text-center">
+				<p class="text-muted">No blog posts available at the moment.</p>
+			</div>
+			{% endif %}
+		</div>
+
+		<!-- View All Button -->
+		{% if blog_posts and blog_posts|length > 0 %}
+		<div class="row mt-4">
+			<div class="col-12 text-center">
+				<a href="{{ view_all_link or '/blog' }}" class="btn btn-theme-primary btn-lg">
+					View All Articles
+				</a>
+			</div>
+		</div>
+		{% endif %}
+	</div>
+</section>
