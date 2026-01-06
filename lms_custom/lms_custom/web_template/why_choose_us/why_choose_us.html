@@ -1,0 +1,108 @@
+<!-- Why Choose Us Section -->
+<section class="why-choose-us-section">
+	<div class="container">
+		<div class="row align-items-center">
+			<!-- Left Column: Image -->
+			<div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+				<div class="why-choose-image">
+					<img
+						src="/files/why-choose-us.jpg"
+						alt="Why Choose Us"
+						class="img-fluid rounded shadow-lg"
+					/>
+				</div>
+			</div>
+
+			<!-- Right Column: Content -->
+			<div class="col-lg-6 col-md-12">
+				<div class="why-choose-content">
+					<!-- Label -->
+					<div class="why-choose-label text-primary mb-3">
+						{{ label or "WHY CHOOSE US" }}
+					</div>
+
+					<!-- Heading -->
+					<h2 class="why-choose-heading mb-4">
+						{{ heading or "Why you chose Ibrahim Alsulmi Certified public accountant"
+						}}
+					</h2>
+
+					<!-- Description -->
+					<p class="why-choose-description mb-4">
+						{{ description or "Our added value and unique services in accounting,
+						auditing, financial and tax consulting, and customized business packages
+						for you." }}
+					</p>
+
+					<!-- Features List -->
+					<div class="why-choose-features">
+						{% if features %} {% for feature in features %}
+						<div class="feature-item d-flex align-items-start mb-3">
+							<div class="feature-number">{{ "%02d"|format(loop.index) }}.</div>
+							<div class="feature-text">{{ feature.title }}</div>
+						</div>
+						{% endfor %} {% else %}
+						<div class="feature-item d-flex align-items-start mb-3">
+							<div class="feature-number">01.</div>
+							<div class="feature-text">Customize services</div>
+						</div>
+						<div class="feature-item d-flex align-items-start mb-3">
+							<div class="feature-number">02.</div>
+							<div class="feature-text">Identity Theft Insurance</div>
+						</div>
+						<div class="feature-item d-flex align-items-start mb-3">
+							<div class="feature-number">03.</div>
+							<div class="feature-text">Sustainable success</div>
+						</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Our Vision Part - Same Section, Different Layout -->
+		<div class="row align-items-center mt-5 pt-5">
+			<!-- Left Column: Content -->
+			<div class="col-lg-6 col-md-12 order-2 order-lg-1">
+				<div class="vision-content">
+
+					<!-- Heading -->
+					<h2 class="vision-heading mb-4">{{ vision_heading or "Our Vision" }}</h2>
+
+					<!-- Description Paragraphs -->
+					<div class="vision-description">
+						{% if vision_paragraphs %} {% for paragraph in vision_paragraphs %}
+						<p class="vision-paragraph">{{ paragraph.text }}</p>
+						{% endfor %} {% else %}
+						<p class="vision-paragraph">
+							At AlsulmiCPA, our vision is to become the leading provider of
+							accounting, auditing, and financial consulting services in Saudi
+							Arabia, recognized for our commitment to excellence, integrity, and
+							client-centric approach.
+						</p>
+						<p class="vision-paragraph">
+							We envision a future where our clients trust us as their strategic
+							financial partner, relying on our expertise to navigate the
+							ever-evolving financial landscape with confidence and precision. Our
+							goal is to continually innovate and adapt our services to meet the
+							dynamic needs of our clients, fostering financial sustainability and
+							prosperity for businesses across the Kingdom.
+						</p>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+			<!-- Right Column: Image -->
+			<div class="col-lg-6 col-md-12 order-1 order-lg-2 mb-4 mb-lg-0">
+				<div class="vision-image">
+					<img
+						src="/files/our-vision.jpg"
+						alt="Our Vision"
+						class="img-fluid rounded shadow-lg"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
