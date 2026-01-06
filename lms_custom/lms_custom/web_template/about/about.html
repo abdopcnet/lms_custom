@@ -1,79 +1,384 @@
-<!-- about section start -->
-<section class="about">
-    <div class="container">
-        <div class="about_deco">
-            <lottie-player
-                src="/assets/lms_custom/lottie/wave.json"
-                background="transparent"
-                speed="1"
-                style="width: 100%; height: 100%"
-                loop
-                autoplay
-            ></lottie-player>
-        </div>
-        <div class="about_main">
-            <div class="content">
-                <h2 class="about_main-header" data-aos="fade-in">How does it work?</h2>
-                <ul class="about_main-list">
-                    <li class="about_main-list_item" data-aos="fade-up">
-                        <i class="icon-check icon"></i>
-                        <div class="content">
-                            <h5 class="title">4 on-line lectures with a teacher</h5>
-                            <p class="text">Quisque eget porta mauris. Praesent eu tincidunt nulla, suscipit lobortis est.</p>
-                        </div>
-                    </li>
-                    <li class="about_main-list_item" data-aos="fade-up" data-aos-delay="50">
-                        <i class="icon-check icon"></i>
-                        <div class="content">
-                            <h5 class="title">Subscription gives access to education materials and videos</h5>
-                            <p class="text">Quisque eget porta mauris. Praesent eu tincidunt nulla, suscipit lobortis est.</p>
-                        </div>
-                    </li>
-                    <li class="about_main-list_item" data-aos="fade-up" data-aos-delay="100">
-                        <i class="icon-check icon"></i>
-                        <div class="content">
-                            <h5 class="title">
-                                After completing the course and completing the tasks, you will receive a certificate
-                            </h5>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="about_review" data-aos="zoom-in">
-            <div class="about_review-wrapper">
-                <div class="media">
-                    <picture>
-                        <source data-srcset="/assets/lms_custom/img/profile.jpg" srcset="/assets/lms_custom/img/profile.jpg" />
-                        <img class="lazy" data-src="/assets/lms_custom/img/profile.jpg" src="/assets/lms_custom/img/profile.jpg" alt="media" />
-                    </picture>
-                </div>
-                <div class="main">
-                    <h5 class="main_name">Diana Gloster</h5>
-                    <ul class="rating d-flex align-items-center">
-                        <li class="rating_star">
-                            <i class="icon-star icon"></i>
-                        </li>
-                        <li class="rating_star">
-                            <i class="icon-star icon"></i>
-                        </li>
-                        <li class="rating_star">
-                            <i class="icon-star icon"></i>
-                        </li>
-                        <li class="rating_star">
-                            <i class="icon-star icon"></i>
-                        </li>
-                        <li class="rating_star">
-                            <i class="icon-star icon"></i>
-                        </li>
-                    </ul>
-                    <q class="main_review quote">
-                        “Mauris tellus lorem, tempus sed nibh at, varius convallis mi. sed scelerisque odio neque a lacus. Ut
-                        consectetur ligula. ed rhoncus sapien eget feugiat.”
-                    </q>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- About Us Section -->
+<section class="about-hero">
+	<!-- Background Image - Update the image path in about-us.css -->
+	<div class="about-hero-bg"></div>
+	<div class="about-hero-overlay"></div>
+	<div class="about-hero-content">
+		<div class="container">
+			<h1 class="about-hero-title" data-aos="fade-up">About Us</h1>
+			<p class="about-hero-subtitle" data-aos="fade-up" data-aos-delay="100">
+				Empowering learners through innovative education and technology
+			</p>
+		</div>
+	</div>
 </section>
-<!-- about section end -->
+
+<!-- Mission and Vision Section -->
+<section class="about-mission-vision">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+				<div class="mission-vision-card">
+					<div class="mission-vision-icon">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="48"
+							height="48"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+							<polyline points="22 4 12 14.01 9 11.01"></polyline>
+						</svg>
+					</div>
+					<h2 class="mission-vision-title">Our Mission</h2>
+					<p class="mission-vision-text">
+						To provide accessible, high-quality education that empowers individuals to
+						achieve their professional and personal goals. We believe in breaking down
+						barriers to learning and creating opportunities for everyone to grow and
+						succeed.
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-6" data-aos="fade-left">
+				<div class="mission-vision-card">
+					<div class="mission-vision-icon">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="48"
+							height="48"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+							<circle cx="12" cy="12" r="3"></circle>
+						</svg>
+					</div>
+					<h2 class="mission-vision-title">Our Vision</h2>
+					<p class="mission-vision-text">
+						To become a leading global platform for online education, fostering a
+						community of lifelong learners who are equipped with the skills and
+						knowledge needed to thrive in an ever-changing world.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Story Section -->
+<section class="about-story">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+				<div class="about-story-image">
+					<img
+						src="/files/our-story.jpg"
+						alt="Our Story"
+						class="img-fluid rounded-lg shadow-lg"
+					/>
+				</div>
+			</div>
+			<div class="col-lg-6" data-aos="fade-left">
+				<div class="about-story-content">
+					<h2 class="section-title">Our Story</h2>
+					<p class="section-text">
+						Founded with a passion for education and innovation, our platform has grown
+						from a simple idea into a comprehensive learning management system serving
+						thousands of students worldwide.
+					</p>
+					<p class="section-text">
+						We started with the belief that quality education should be accessible to
+						everyone, regardless of their location or background. Today, we continue to
+						push the boundaries of what's possible in online learning, creating
+						engaging experiences that inspire and transform lives.
+					</p>
+					<p class="section-text">
+						Our team of dedicated educators, developers, and designers work tirelessly
+						to ensure that every course, every interaction, and every moment spent on
+						our platform contributes to your growth and success.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Values Section -->
+<section class="about-values">
+	<div class="container">
+		<div class="text-center mb-5" data-aos="fade-up">
+			<h2 class="section-title">Our Core Values</h2>
+			<p class="section-subtitle">The principles that guide everything we do</p>
+		</div>
+		<div class="row">
+			<div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="0">
+				<div class="value-card">
+					<div class="value-icon">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="40"
+							height="40"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+							<path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+						</svg>
+					</div>
+					<h3 class="value-title">Excellence</h3>
+					<p class="value-text">
+						We strive for excellence in everything we do, from course content to
+						platform design.
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+				<div class="value-card">
+					<div class="value-icon">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="40"
+							height="40"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+							<circle cx="9" cy="7" r="4"></circle>
+							<path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+						</svg>
+					</div>
+					<h3 class="value-title">Community</h3>
+					<p class="value-text">
+						We foster a supportive community where learners can connect, collaborate,
+						and grow together.
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+				<div class="value-card">
+					<div class="value-icon">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="40"
+							height="40"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<circle cx="12" cy="12" r="10"></circle>
+							<polyline points="12 6 12 12 16 14"></polyline>
+						</svg>
+					</div>
+					<h3 class="value-title">Innovation</h3>
+					<p class="value-text">
+						We continuously innovate to provide the best learning experiences using
+						cutting-edge technology.
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+				<div class="value-card">
+					<div class="value-icon">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="40"
+							height="40"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+							<polyline points="22 4 12 14.01 9 11.01"></polyline>
+						</svg>
+					</div>
+					<h3 class="value-title">Integrity</h3>
+					<p class="value-text">
+						We operate with transparency, honesty, and respect in all our interactions.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Stats Section -->
+<section class="about-stats">
+	<div class="container">
+		<div class="row text-center">
+			<div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="0">
+				<div class="stat-card">
+					<div class="stat-number">10K+</div>
+					<div class="stat-label">Active Students</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+				<div class="stat-card">
+					<div class="stat-number">500+</div>
+					<div class="stat-label">Courses Available</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+				<div class="stat-card">
+					<div class="stat-number">100+</div>
+					<div class="stat-label">Expert Instructors</div>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+				<div class="stat-card">
+					<div class="stat-number">95%</div>
+					<div class="stat-label">Success Rate</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Awards & Achievements Section -->
+<section class="about-achievements">
+	<div class="container">
+		<div class="text-center mb-5" data-aos="fade-up">
+			<h2 class="section-title">Awards & Achievements</h2>
+			<p class="section-subtitle">Recognition for our commitment to excellence in education</p>
+		</div>
+		<div class="row">
+			<div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="0">
+				<div class="achievement-card">
+					<div class="achievement-icon">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="50"
+							height="50"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<circle cx="12" cy="8" r="7"></circle>
+							<polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
+						</svg>
+					</div>
+					<h3 class="achievement-title">Best Online Platform</h3>
+					<p class="achievement-year">2025</p>
+					<p class="achievement-description">
+						Awarded for outstanding innovation in online education technology
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+				<div class="achievement-card">
+					<div class="achievement-icon">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="50"
+							height="50"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+						</svg>
+					</div>
+					<h3 class="achievement-title">Excellence in Education</h3>
+					<p class="achievement-year">2024</p>
+					<p class="achievement-description">
+						Recognized for exceptional quality in course content and delivery
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+				<div class="achievement-card">
+					<div class="achievement-icon">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="50"
+							height="50"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+						</svg>
+					</div>
+					<h3 class="achievement-title">Top Rated LMS</h3>
+					<p class="achievement-year">2024</p>
+					<p class="achievement-description">
+						Ranked among the top 10 learning management systems globally
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+				<div class="achievement-card">
+					<div class="achievement-icon">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="50"
+							height="50"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+							<circle cx="9" cy="7" r="4"></circle>
+							<path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+							<path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+						</svg>
+					</div>
+					<h3 class="achievement-title">Student Choice Award</h3>
+					<p class="achievement-year">2023</p>
+					<p class="achievement-description">
+						Chosen by students for best learning experience and support
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- CTA Section -->
+<section class="about-cta">
+	<div class="about-cta-overlay"></div>
+	<div class="container">
+		<div class="text-center" data-aos="fade-up">
+			<h2 class="cta-title">Ready to Start Learning?</h2>
+			<p class="cta-text">Join thousands of students already learning on our platform</p>
+			<div class="cta-buttons">
+				<a href="/courses" class="btn btn-primary btn-lg">Browse Courses</a>
+				<a href="/contact" class="btn btn-outline-light btn-lg">Contact Us</a>
+			</div>
+		</div>
+	</div>
+</section>
