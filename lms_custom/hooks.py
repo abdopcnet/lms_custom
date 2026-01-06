@@ -31,7 +31,8 @@ app_include_js = "/assets/lms_custom/js/rtl_setup.js"
 # ---------------
 # include js, css files in header of web template
 web_include_css = [
-	"/assets/lms_custom/css/rtl.css"
+	"/assets/lms_custom/css/rtl.css",
+	"/assets/lms_custom/css/footer.css"
 ]
 
 web_include_js = [
