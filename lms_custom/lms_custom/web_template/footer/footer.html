@@ -1,128 +1,217 @@
-<!-- homepage content end -->
-<link rel="stylesheet" href="/assets/lms_custom/css/footer.css" />
-
-<footer class="footer">
+<!-- Newsletter Section -->
+<div class="newsletter-section">
 	<div class="container">
-		<div class="footer_wrapper d-sm-flex flex-wrap flex-lg-nowrap justify-content-lg-between">
-			<div class="footer_block col-sm-6 col-lg-auto" data-order="1">
-				<div class="logo logo--footer">
-					<a class="d-inline-flex align-items-center" href="/">
-						<span class="logo_picture">
-							<img src="/assets/lms_custom/svg/logo.svg" alt="Edison" />
-						</span>
-						<span class="text">
-							<span class="brand">edison</span>
-							<span class="text_secondary">courses</span>
-						</span>
-					</a>
-				</div>
-				<p class="footer_block-text">
-					Curabitur non libero at lorem finibus lobortis. Ut auctor egestas pretium.
-					Proin nunc ligula, venenatis tempor
+		<div class="row align-items-center">
+			<div class="col-lg-6 mb-4 mb-lg-0">
+				<h3 class="newsletter-title">{{ _("Subscribe to Our Newsletter") }}</h3>
+				<p class="newsletter-subtitle">
+					{{ _("Stay updated with our latest courses and news") }}
 				</p>
-				<ul class="footer_block-socials d-flex align-items-center">
-					<li class="footer_block-socials_item">
-						<a
-							class="link"
-							href="https://www.facebook.com"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<i class="icon-facebook"></i>
-						</a>
-					</li>
-					<li class="footer_block-socials_item">
-						<a
-							class="link"
-							href="https://www.twitter.com"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<i class="icon-twitter"></i>
-						</a>
-					</li>
-					<li class="footer_block-socials_item">
-						<a
-							class="link"
-							href="https://www.instagram.com"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<i class="icon-instagram"></i>
-						</a>
-					</li>
-				</ul>
-				<div class="wrapper d-flex flex-column">
-					<a
-						class="link link--contacts text text--sm d-inline-flex align-items-center"
-						href="mailto:example@domain.com"
-					>
-						<i class="icon-envelope icon"></i>
-						acadesiq@mail.com
-					</a>
-					<a
-						class="link link--contacts text text--sm d-inline-flex align-items-center"
-						href="tel:+123456789"
-					>
-						<i class="icon-phone-solid icon"></i>
-						+1-202-555-0190
-					</a>
+			</div>
+			<div class="col-lg-6">
+				<form class="newsletter-form" id="newsletter-form">
+					<div class="newsletter-input-group">
+						<input
+							type="email"
+							class="newsletter-input"
+							placeholder="{{ _('Your email address...') }}"
+							required
+							name="email"
+							id="newsletter-email"
+						/>
+						<button type="submit" class="newsletter-button">
+							{{ _("Get Updates") }}
+							<i class="fa fa-paper-plane ml-2"></i>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Footer Section -->
+<footer class="custom-footer">
+	<div class="footer-main">
+		<div class="container">
+			<div class="row">
+				<!-- About Column -->
+				<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+					<div class="footer-widget">
+						{% set footer_logo = frappe.db.get_single_value('Website Settings',
+						'footer_logo') %} {% if footer_logo %}
+						<div class="footer-logo mb-3">
+							<img
+								src="{{ footer_logo }}"
+								alt="{{ _('Company Logo') }}"
+								class="footer-logo-img"
+							/>
+						</div>
+						{% endif %}
+						<h4 class="footer-widget-title">{{ _("About Us") }}</h4>
+						<p class="footer-about-text">
+							{{ _("We provide professional training and certification programs to
+							help individuals and organizations achieve their goals.") }}
+						</p>
+					</div>
+				</div>
+
+				<!-- Quick Links Column -->
+				<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+					<div class="footer-widget">
+						<h4 class="footer-widget-title">{{ _("Quick Links") }}</h4>
+						<ul class="footer-links">
+							<li><a href="/courses">{{ _("Courses") }}</a></li>
+							<li><a href="/batches">{{ _("Batches") }}</a></li>
+							<li><a href="/about">{{ _("About") }}</a></li>
+							<li><a href="/statistics">{{ _("Statistics") }}</a></li>
+							<li><a href="/testimonials">{{ _("Testimonials") }}</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Support Column -->
+				<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+					<div class="footer-widget">
+						<h4 class="footer-widget-title">{{ _("Support") }}</h4>
+						<ul class="footer-links">
+							<li><a href="/help">{{ _("Help Center") }}</a></li>
+							<li><a href="/faq">{{ _("FAQ") }}</a></li>
+							<li><a href="/privacy">{{ _("Privacy Policy") }}</a></li>
+							<li><a href="/terms">{{ _("Terms of Service") }}</a></li>
+							<li><a href="/contact">{{ _("Contact Us") }}</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Contact Column -->
+				<div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+					<div class="footer-widget">
+						<h4 class="footer-widget-title">{{ _("Contact Info") }}</h4>
+						<ul class="footer-contact-info">
+							{% if frappe.db.get_single_value('Website Settings', 'address') %}
+							<li>
+								<i class="fa fa-map-marker-alt"></i>
+								<span
+									>{{ frappe.db.get_single_value('Website Settings', 'address')
+									}}</span
+								>
+							</li>
+							{% else %}
+							<li>
+								<i class="fa fa-map-marker-alt"></i>
+								<span>{{ _("RIYADH, Jeddah, Dammam - KSA") }}</span>
+							</li>
+							{% endif %}
+							<li>
+								<i class="fa fa-envelope"></i>
+								<a href="mailto:khaled@alsulmicpa.com">khaled@alsulmicpa.com</a>
+							</li>
+							<li>
+								<i class="fa fa-phone"></i>
+								<a href="tel:+966560229188">+966 56 022 9188</a>
+							</li>
+						</ul>
+						<div class="footer-social-links">
+							<a href="#" class="footer-social-link" aria-label="Facebook">
+								<i class="fab fa-facebook-f"></i>
+							</a>
+							<a href="#" class="footer-social-link" aria-label="Twitter">
+								<i class="fab fa-twitter"></i>
+							</a>
+							<a href="#" class="footer-social-link" aria-label="LinkedIn">
+								<i class="fab fa-linkedin-in"></i>
+							</a>
+							<a href="#" class="footer-social-link" aria-label="Instagram">
+								<i class="fab fa-instagram"></i>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="footer_block col-sm-6 col-lg-auto" data-order="2">
-				<h5 class="footer_block-header">Quick Links:</h5>
-				<ul class="footer_block-nav">
-					<li class="footer_block-nav_item">
-						<a class="link" href="/about-us">About Us</a>
-					</li>
-					<li class="footer_block-nav_item">
-						<a class="link" href="/lms/courses">All Courses</a>
-					</li>
-					<li class="footer_block-nav_item">
-						<a class="link" href="/contact">Contact</a>
-					</li>
-					<li class="footer_block-nav_item">
-						<a class="link" href="/blog">Blog</a>
-					</li>
-				</ul>
+		</div>
+	</div>
+
+	<!-- Footer Bottom -->
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-md-6 text-center text-md-left mb-3 mb-md-0">
+					<p class="footer-copyright">
+						{% if frappe.db.get_single_value('Website Settings', 'copyright') %} {{
+						frappe.db.get_single_value('Website Settings', 'copyright') }} {% else %}
+						&copy; {{ frappe.utils.nowdate().split('-')[0] }} {{ _("All rights
+						reserved.") }} {% endif %}
+					</p>
+				</div>
+				<div class="col-md-6 text-center text-md-right">
+					<p class="footer-credits">
+						{% set footer_powered = frappe.db.get_single_value('Website Settings',
+						'footer_powered') %} {% if footer_powered %} {{ footer_powered }} {% else
+						%} {{ _("Powered by") }}
+						<a href="https://frappeframework.com" target="_blank">Frappe</a>
+						{% endif %}
+					</p>
+				</div>
 			</div>
-			<div class="footer_block col-sm-6 col-lg-auto m-sm-0" data-order="3">
-				<h5 class="footer_block-header">Popular Courses:</h5>
-				<ul class="footer_block-list">
-					{% for course in footer_courses %}
-					<li class="footer_block-list_item d-flex align-items-baseline">
-						<span class="marker"></span>
-						<a class="link" href="/lms/courses/{{ course.name }}">
-							{{ course.title[:50] }}{{ '...' if course.title|length > 50 else '' }}
-						</a>
-					</li>
-					{% endfor %}
-				</ul>
-			</div>
-	<div class="footer_secondary">
-		<div
-			class="container d-flex flex-column flex-sm-row align-items-center justify-content-sm-between"
-		>
-			<a class="footer_secondary-scroll" id="scrollToTop" href="#">
-				<i class="icon-angle-up icon"></i>
-			</a>
 		</div>
 	</div>
 </footer>
 
-<style>
-	/* Remove underline from footer links on hover */
-	.footer a {
-		text-decoration: none !important;
-	}
+<script>
+	// Frontend logging: console.log('[footer.html] method: newsletter_subscription')
 
-	.footer a:hover {
-		text-decoration: none !important;
-	}
+	document.addEventListener('DOMContentLoaded', function () {
+		const newsletterForm = document.getElementById('newsletter-form');
 
-	.footer_block-nav_item .link:hover,
-	.footer_block-list_item .link:hover,
-	.footer_block-socials_item .link:hover {
-		text-decoration: none !important;
-	}
-</style>
+		if (newsletterForm) {
+			newsletterForm.addEventListener('submit', function (e) {
+				e.preventDefault();
+
+				const emailInput = document.getElementById('newsletter-email');
+				const email = emailInput.value.trim();
+
+				if (!email) {
+					frappe.show_alert(
+						{
+							message: __('Please enter your email address'),
+							indicator: 'red',
+						},
+						5,
+					);
+					return;
+				}
+
+				// Call server method to subscribe
+				frappe.call({
+					method: 'lms_custom.api.subscribe_newsletter',
+					args: {
+						email: email,
+					},
+					callback: function (r) {
+						if (r.message && r.message.success) {
+							frappe.show_alert(
+								{
+									message: __('Successfully subscribed to newsletter!'),
+									indicator: 'green',
+								},
+								5,
+							);
+							emailInput.value = '';
+						}
+					},
+					error: function (err) {
+						frappe.show_alert(
+							{
+								message: __('Failed to subscribe. Please try again.'),
+								indicator: 'red',
+							},
+							5,
+						);
+						console.log('[footer.html] method: newsletter_subscription');
+					},
+				});
+			});
+		}
+	});
+</script>
