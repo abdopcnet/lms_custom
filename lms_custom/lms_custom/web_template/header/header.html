@@ -33,19 +33,24 @@
 		<nav class="header_nav" id="header-nav">
 			<ul class="header_nav-list">
 				<li class="header_nav-list_item">
-					<a href="/" class="nav-item" data-page="home">Home</a>
+					<a href="/" class="nav-item" data-page="home">{{ _("Home") }}</a>
 				</li>
 				<li class="header_nav-list_item">
-					<a href="/about-us" class="nav-item" data-page="about">About Us</a>
+					<a href="/about-us" class="nav-item" data-page="about">{{ _("About Us") }}</a>
 				</li>
 				<li class="header_nav-list_item">
-					<a href="/contact" class="nav-item" data-page="contact">Contacts</a>
+					<a href="/our-services" class="nav-item" data-page="services"
+						>{{ _("Services") }}</a
+					>
 				</li>
 				<li class="header_nav-list_item">
-					<a href="/blog" class="nav-item" data-page="blog">Blog</a>
+					<a href="/contact-us" class="nav-item" data-page="contact">{{ _("Contact") }}</a>
 				</li>
 				<li class="header_nav-list_item">
-					<a href="/courses" class="nav-item" data-page="courses">Courses</a>
+					<a href="/blog" class="nav-item" data-page="blog">{{ _("Blog") }}</a>
+				</li>
+				<li class="header_nav-list_item">
+					<a href="/courses" class="nav-item" data-page="courses">{{ _("Courses") }}</a>
 				</li>
 			</ul>
 
@@ -54,9 +59,11 @@
 				{% if frappe.session.user == 'Guest' %}
 				<!-- Guest: Show Sign Up and Log In -->
 				<a href="/login#signup" class="btn-auth btn-auth-signup" id="signUpTrigger"
-					>Sign Up</a
+					>{{ _("Sign Up") }}</a
 				>
-				<a href="/login" class="btn-auth btn-auth-login" id="logInTrigger">Log In</a>
+				<a href="/login" class="btn-auth btn-auth-login" id="logInTrigger"
+					>{{ _("Log In") }}</a
+				>
 				{% else %}
 				<!-- Logged in: Show user menu -->
 				<div class="user-menu dropdown">
@@ -88,27 +95,27 @@
 							class="dropdown-link"
 							target="_blank"
 						>
-							<i class="icon-user"></i> My Profile
+							<i class="icon-user"></i> {{ _("My Profile") }}
 						</a>
 						<a
 							href="https://lms.future-support.online/lms/"
 							class="dropdown-link"
 							target="_blank"
 						>
-							<i class="icon-book"></i> Go to LMS
+							<i class="icon-book"></i> {{ _("Go to LMS") }}
 						</a>
 						{% if is_system_user %}
 						<a href="/app" class="dropdown-link">
-							<i class="icon-th-large"></i> Switch to Desk
+							<i class="icon-th-large"></i> {{ _("Switch to Desk") }}
 						</a>
 						{% endif %} {% if is_moderator %}
 						<a href="/settings" class="dropdown-link">
-							<i class="icon-cog"></i> Settings
+							<i class="icon-cog"></i> {{ _("Settings") }}
 						</a>
 						{% endif %}
 						<div class="dropdown-divider"></div>
 						<a href="#" class="dropdown-link logout" id="logoutTrigger">
-							<i class="icon-sign-out"></i> Log Out
+							<i class="icon-sign-out"></i> {{ _("Log Out") }}
 						</a>
 					</div>
 				</div>
