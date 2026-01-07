@@ -55,3 +55,76 @@ def subscribe_newsletter(email):
 	except Exception as e:
 		frappe.log_error("[api.py] method: subscribe_newsletter", "Newsletter API")
 		frappe.throw(_("Failed to subscribe. Please try again."))
+
+
+@frappe.whitelist(allow_guest=True)
+def send_contact_message(lead_name, email_id, phone, subject, message):
+	"""Handle contact form submissions from website"""
+	try:
+		# Validate required fields
+		if not lead_name or not email_id or not subject or not message:
+			frappe.throw(_("Please fill all required fields"))
+
+		# Validate email format
+		from frappe.utils import validate_email_address
+		validate_email_address(email_id, throw=True)
+
+		# Create a Communication record to store the message
+		comm = frappe.get_doc({
+			"doctype": "Communication",
+			"sender": email_id,
+			"sender_full_name": lead_name,
+			"subject": f"Contact Form: {subject}",
+			"content": f"""
+				<div>
+					<p><strong>Name:</strong> {lead_name}</p>
+					<p><strong>Email:</strong> {email_id}</p>
+					<p><strong>Phone:</strong> {phone or 'Not provided'}</p>
+					<p><strong>Subject:</strong> {subject}</p>
+					<hr>
+					<p><strong>Message:</strong></p>
+					<p>{message}</p>
+				</div>
+			""",
+			"communication_type": "Communication",
+			"communication_medium": "Email",
+			"sent_or_received": "Received",
+			"status": "Open"
+		})
+		comm.insert(ignore_permissions=True)
+		frappe.db.commit()
+
+		# Try to send notification email to admin (optional - won't fail if not configured)
+		try:
+			admin_email = frappe.db.get_single_value("System Settings", "email_footer_address")
+			if admin_email:
+				frappe.sendmail(
+					recipients=[admin_email],
+					subject=f"New Contact Form Submission: {subject}",
+					message=f"""
+						<h3>New Contact Form Submission</h3>
+						<p><strong>Name:</strong> {lead_name}</p>
+						<p><strong>Email:</strong> {email_id}</p>
+						<p><strong>Phone:</strong> {phone or 'Not provided'}</p>
+						<p><strong>Subject:</strong> {subject}</p>
+						<hr>
+						<p><strong>Message:</strong></p>
+						<p>{message}</p>
+					""",
+					now=True
+				)
+		except Exception as email_error:
+			# Log email error but don't fail the whole process
+			frappe.log_error(f"[api.py] Email notification failed: {str(email_error)}", "Contact Form Email")
+
+		return {
+			"success": True,
+			"message": "okay"
+		}
+
+	except Exception as e:
+		frappe.log_error(f"[api.py] method: send_contact_message - {str(e)}", "Contact Form API")
+		return {
+			"success": False,
+			"message": str(e)
+		}
