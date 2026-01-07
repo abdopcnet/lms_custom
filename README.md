@@ -1,6 +1,6 @@
 ### Lms Custom
 
-![Version](https://img.shields.io/badge/version-6.1.2026-blue)
+![Version](https://img.shields.io/badge/version-7.1.2026-blue)
 
 
 Lms Custom
