@@ -189,3 +189,438 @@ html[dir='rtl'] .tooltip,
 html[dir='rtl'] .popover {
 	text-align: right;
 }
+
+/* ===================================
+   CUSTOM LMS COMPONENTS RTL STYLES
+   =================================== */
+
+/* Header Navigation */
+html[lang='ar'] .header_nav-list,
+html[dir='rtl'] .header_nav-list {
+	flex-direction: row-reverse;
+}
+
+html[lang='ar'] .header-auth,
+html[dir='rtl'] .header-auth {
+	margin-left: 0;
+	margin-right: auto;
+}
+
+html[lang='ar'] .user-dropdown,
+html[dir='rtl'] .user-dropdown {
+	right: auto;
+	left: 0;
+}
+
+/* Footer */
+html[lang='ar'] .footer-main .row,
+html[dir='rtl'] .footer-main .row {
+	direction: rtl;
+}
+
+html[lang='ar'] .footer-links li,
+html[dir='rtl'] .footer-links li {
+	text-align: right;
+}
+
+html[lang='ar'] .footer-social-links,
+html[dir='rtl'] .footer-social-links {
+	justify-content: flex-end;
+}
+
+/* Newsletter Form */
+html[lang='ar'] .newsletter-input-group,
+html[dir='rtl'] .newsletter-input-group {
+	flex-direction: row-reverse;
+}
+
+html[lang='ar'] .newsletter-button,
+html[dir='rtl'] .newsletter-button {
+	border-radius: 8px 0 0 8px;
+}
+
+html[lang='ar'] .newsletter-input,
+html[dir='rtl'] .newsletter-input {
+	border-radius: 0 8px 8px 0;
+	text-align: right;
+}
+
+/* Hero Section */
+html[lang='ar'] .hero-content,
+html[dir='rtl'] .hero-content {
+	text-align: right;
+}
+
+html[lang='ar'] .hero-cta-buttons,
+html[dir='rtl'] .hero-cta-buttons {
+	justify-content: flex-end;
+}
+
+/* Why Choose Us Section */
+html[lang='ar'] .feature-item,
+html[dir='rtl'] .feature-item {
+	flex-direction: row-reverse;
+}
+
+html[lang='ar'] .feature-number,
+html[dir='rtl'] .feature-number {
+	margin-left: 1rem;
+	margin-right: 0;
+}
+
+/* Blog Cards */
+html[lang='ar'] .blog-card-meta,
+html[dir='rtl'] .blog-card-meta {
+	flex-direction: row-reverse;
+}
+
+html[lang='ar'] .blog-read-more i,
+html[dir='rtl'] .blog-read-more i {
+	margin-left: 0;
+	margin-right: 0.5rem;
+	transform: scaleX(-1);
+}
+
+/* Service Cards */
+html[lang='ar'] .service-cta-buttons,
+html[dir='rtl'] .service-cta-buttons {
+	flex-direction: row-reverse;
+	gap: 1rem;
+}
+
+html[lang='ar'] .service-card-icon,
+html[dir='rtl'] .service-card-icon {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* About Us Stats */
+html[lang='ar'] .stat-card,
+html[dir='rtl'] .stat-card {
+	text-align: center;
+}
+
+/* Contact Section */
+html[lang='ar'] .location-item,
+html[dir='rtl'] .location-item {
+	flex-direction: row-reverse;
+}
+
+html[lang='ar'] .location-icon,
+html[dir='rtl'] .location-icon {
+	margin-left: 1rem;
+	margin-right: 0;
+}
+
+html[lang='ar'] .contact-info-item,
+html[dir='rtl'] .contact-info-item {
+	flex-direction: row-reverse;
+}
+
+html[lang='ar'] .contact-info-icon,
+html[dir='rtl'] .contact-info-icon {
+	margin-left: 1rem;
+	margin-right: 0;
+}
+
+/* Arrows and Icons */
+html[lang='ar'] .fa-arrow-right,
+html[dir='rtl'] .fa-arrow-right {
+	transform: scaleX(-1);
+}
+
+html[lang='ar'] .fa-arrow-left,
+html[dir='rtl'] .fa-arrow-left {
+	transform: scaleX(-1);
+}
+
+html[lang='ar'] .carousel-control-prev-icon,
+html[dir='rtl'] .carousel-control-prev-icon {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+html[lang='ar'] .carousel-control-next-icon,
+html[dir='rtl'] .carousel-control-next-icon {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23fff'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+}
+
+/* Buttons with icons */
+html[lang='ar'] .btn i,
+html[dir='rtl'] .btn i {
+	margin-left: 0;
+	margin-right: 0.5rem;
+}
+
+html[lang='ar'] .btn i:last-child,
+html[dir='rtl'] .btn i:last-child {
+	margin-right: 0;
+	margin-left: 0.5rem;
+}
+
+/* Achievement and Value Cards */
+html[lang='ar'] .achievement-card,
+html[lang='ar'] .value-card,
+html[dir='rtl'] .achievement-card,
+html[dir='rtl'] .value-card {
+	text-align: center;
+}
+
+/* Vision and Mission Sections */
+html[lang='ar'] .mission-vision-card,
+html[dir='rtl'] .mission-vision-card {
+	text-align: right;
+}
+
+/* Responsive RTL adjustments */
+@media (max-width: 991px) {
+	html[lang='ar'] .header_nav,
+	html[dir='rtl'] .header_nav {
+		text-align: right;
+	}
+
+	html[lang='ar'] .mobile-menu,
+	html[dir='rtl'] .mobile-menu {
+		right: auto;
+		left: 0;
+	}
+}
+
+/* Fix for Bootstrap RTL compatibility */
+html[lang='ar'] .row,
+html[dir='rtl'] .row {
+	direction: rtl;
+}
+
+html[lang='ar'] .col,
+html[lang='ar'] [class*='col-'],
+html[dir='rtl'] .col,
+html[dir='rtl'] [class*='col-'] {
+	text-align: right;
+}
+
+/* Ensure proper Arabic font rendering */
+html[lang='ar'] body,
+html[dir='rtl'] body {
+	font-family: 'Segoe UI', 'Arial', 'Tahoma', sans-serif;
+}
+
+/* Fix dropdown menu positions */
+html[lang='ar'] .dropdown-menu-end,
+html[dir='rtl'] .dropdown-menu-end {
+	right: auto !important;
+	left: 0 !important;
+}
+
+html[lang='ar'] .dropdown-menu-start,
+html[dir='rtl'] .dropdown-menu-start {
+	left: auto !important;
+	right: 0 !important;
+}
+
+/* ===================================
+   HERO SECTION RTL FIXES
+   =================================== */
+
+/* Hero content text alignment */
+html[lang='ar'] .hero-content,
+html[dir='rtl'] .hero-content {
+	text-align: right;
+	right: auto;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+html[lang='ar'] .hero-content-inner,
+html[dir='rtl'] .hero-content-inner {
+	text-align: right;
+}
+
+html[lang='ar'] .hero-text-slide,
+html[dir='rtl'] .hero-text-slide {
+	text-align: right;
+}
+
+html[lang='ar'] .hero-heading,
+html[dir='rtl'] .hero-heading {
+	text-align: right;
+}
+
+html[lang='ar'] .hero-description,
+html[dir='rtl'] .hero-description {
+	text-align: right;
+}
+
+/* Hero CTA buttons alignment */
+html[lang='ar'] .hero-cta-buttons,
+html[dir='rtl'] .hero-cta-buttons {
+	justify-content: flex-start;
+	text-align: right;
+}
+
+/* Hero controls positioning for RTL */
+html[lang='ar'] .hero-controls-bottom-right,
+html[dir='rtl'] .hero-controls-bottom-right {
+	left: auto;
+	right: auto;
+	/* Keep centered */
+}
+
+/* ===================================
+   WHY CHOOSE US SECTION RTL FIXES
+   =================================== */
+
+/* Why Choose Us content alignment */
+html[lang='ar'] .why-choose-content,
+html[dir='rtl'] .why-choose-content {
+	text-align: right;
+}
+
+html[lang='ar'] .why-choose-label,
+html[dir='rtl'] .why-choose-label {
+	text-align: right;
+}
+
+html[lang='ar'] .why-choose-heading,
+html[dir='rtl'] .why-choose-heading {
+	text-align: right;
+}
+
+html[lang='ar'] .why-choose-description,
+html[dir='rtl'] .why-choose-description {
+	text-align: right;
+}
+
+/* Feature items RTL */
+html[lang='ar'] .feature-item,
+html[dir='rtl'] .feature-item {
+	flex-direction: row-reverse;
+	text-align: right;
+}
+
+html[lang='ar'] .feature-number,
+html[dir='rtl'] .feature-number {
+	margin-left: 1rem;
+	margin-right: 0;
+}
+
+html[lang='ar'] .feature-text,
+html[dir='rtl'] .feature-text {
+	text-align: right;
+}
+
+/* ===================================
+   VISION SECTION RTL FIXES
+   =================================== */
+
+/* Vision content alignment */
+html[lang='ar'] .vision-content,
+html[dir='rtl'] .vision-content {
+	text-align: right;
+}
+
+html[lang='ar'] .vision-heading,
+html[dir='rtl'] .vision-heading {
+	text-align: right;
+}
+
+html[lang='ar'] .vision-description,
+html[dir='rtl'] .vision-description {
+	text-align: right;
+}
+
+html[lang='ar'] .vision-paragraph,
+html[dir='rtl'] .vision-paragraph {
+	text-align: right;
+}
+
+/* ===================================
+   SERVICES SECTION RTL FIXES
+   =================================== */
+
+/* Service cards content alignment */
+html[lang='ar'] .service-card,
+html[dir='rtl'] .service-card {
+	text-align: right;
+}
+
+html[lang='ar'] .service-card h3,
+html[lang='ar'] .service-card h4,
+html[lang='ar'] .service-card p,
+html[dir='rtl'] .service-card h3,
+html[dir='rtl'] .service-card h4,
+html[dir='rtl'] .service-card p {
+	text-align: right;
+}
+
+/* Service icons should stay centered */
+html[lang='ar'] .service-icon,
+html[dir='rtl'] .service-icon {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* ===================================
+   GENERAL SECTION TEXT ALIGNMENT
+   =================================== */
+
+/* All section headings */
+html[lang='ar'] .section-title,
+html[lang='ar'] .section-subtitle,
+html[lang='ar'] .section-text,
+html[dir='rtl'] .section-title,
+html[dir='rtl'] .section-subtitle,
+html[dir='rtl'] .section-text {
+	text-align: right;
+}
+
+/* Centered sections should remain centered */
+html[lang='ar'] .text-center .section-title,
+html[lang='ar'] .text-center .section-subtitle,
+html[dir='rtl'] .text-center .section-title,
+html[dir='rtl'] .text-center .section-subtitle {
+	text-align: center !important;
+}
+
+/* All paragraphs in sections */
+html[lang='ar'] section p,
+html[dir='rtl'] section p {
+	text-align: right;
+}
+
+/* Centered text should remain centered */
+html[lang='ar'] .text-center p,
+html[dir='rtl'] .text-center p {
+	text-align: center !important;
+}
+
+/* All headings in sections */
+html[lang='ar'] section h1,
+html[lang='ar'] section h2,
+html[lang='ar'] section h3,
+html[lang='ar'] section h4,
+html[lang='ar'] section h5,
+html[lang='ar'] section h6,
+html[dir='rtl'] section h1,
+html[dir='rtl'] section h2,
+html[dir='rtl'] section h3,
+html[dir='rtl'] section h4,
+html[dir='rtl'] section h5,
+html[dir='rtl'] section h6 {
+	text-align: right;
+}
+
+/* Centered headings should remain centered */
+html[lang='ar'] .text-center h1,
+html[lang='ar'] .text-center h2,
+html[lang='ar'] .text-center h3,
+html[lang='ar'] .text-center h4,
+html[lang='ar'] .text-center h5,
+html[lang='ar'] .text-center h6,
+html[dir='rtl'] .text-center h1,
+html[dir='rtl'] .text-center h2,
+html[dir='rtl'] .text-center h3,
+html[dir='rtl'] .text-center h4,
+html[dir='rtl'] .text-center h5,
+html[dir='rtl'] .text-center h6 {
+	text-align: center !important;
+}
