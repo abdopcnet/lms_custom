@@ -1,0 +1,492 @@
+<!-- Contact Us Page Hero Section -->
+<section class="contact-hero-section">
+	<div class="contact-hero-background"></div>
+	<div class="contact-hero-overlay"></div>
+	<div class="contact-hero-wrapper">
+		<h1 class="contact-hero-heading">Get In Touch With Us</h1>
+		<p class="contact-hero-subheading">
+			We're here to help and answer any questions you might have
+		</p>
+	</div>
+</section>
+
+<!-- Contact Information Cards -->
+<section class="contact-info-section">
+	<div class="container">
+		<div class="row g-4">
+			<!-- Phone Card -->
+			<div class="col-lg-4 col-md-6">
+				<div class="contact-info-card">
+					<div class="contact-info-icon-box">
+						<i class="fa fa-phone"></i>
+					</div>
+					<h3 class="contact-info-heading">Call Us</h3>
+					<p class="contact-info-description">Reach out to us during business hours</p>
+					<a href="tel:+96656022188" class="contact-info-link"> +966 56 022 188 </a>
+				</div>
+			</div>
+
+			<!-- Email Card -->
+			<div class="col-lg-4 col-md-6">
+				<div class="contact-info-card">
+					<div class="contact-info-icon-box">
+						<i class="fa fa-envelope"></i>
+					</div>
+					<h3 class="contact-info-heading">Email Us</h3>
+					<p class="contact-info-description">Send us your inquiries anytime</p>
+					<a href="mailto:info@alsulmi.com" class="contact-info-link">
+						info@alsulmi.com
+					</a>
+				</div>
+			</div>
+
+			<!-- Location Card -->
+			<div class="col-lg-4 col-md-6">
+				<div class="contact-info-card">
+					<div class="contact-info-icon-box">
+						<i class="fa fa-map-marker"></i>
+					</div>
+					<h3 class="contact-info-heading">Visit Us</h3>
+					<p class="contact-info-description">Our office location</p>
+					<p class="contact-info-link">Riyadh, Kingdom of Saudi Arabia</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Contact Form & Info Section -->
+<section class="contact-main-section">
+	<div class="container">
+		<div class="row g-5">
+			<!-- Contact Form -->
+			<div class="col-lg-7">
+				<div class="contact-form-wrapper">
+					<div class="contact-form-header">
+						<span class="contact-form-label">SEND US A MESSAGE</span>
+						<h2 class="contact-form-title">Let's Start a Conversation</h2>
+						<p class="contact-form-subtitle">
+							Fill out the form below and we'll get back to you as soon as possible
+						</p>
+					</div>
+
+					<form
+						class="contact-form-container"
+						id="contactForm"
+						data-doctype="Contact Us Settings"
+					>
+						<div class="row g-4">
+							<!-- Full Name -->
+							<div class="col-md-6">
+								<div class="contact-form-group">
+									<label for="lead_name" class="contact-form-label-text">
+										Full Name <span class="contact-required">*</span>
+									</label>
+									<input
+										type="text"
+										id="lead_name"
+										name="lead_name"
+										class="contact-form-input"
+										placeholder="Enter your full name"
+										required
+									/>
+								</div>
+							</div>
+
+							<!-- Email -->
+							<div class="col-md-6">
+								<div class="contact-form-group">
+									<label for="email_id" class="contact-form-label-text">
+										Email Address <span class="contact-required">*</span>
+									</label>
+									<input
+										type="email"
+										id="email_id"
+										name="email_id"
+										class="contact-form-input"
+										placeholder="Enter your email"
+										required
+									/>
+								</div>
+							</div>
+
+							<!-- Phone -->
+							<div class="col-md-6">
+								<div class="contact-form-group">
+									<label for="phone" class="contact-form-label-text">
+										Phone Number
+									</label>
+									<input
+										type="tel"
+										id="phone"
+										name="phone"
+										class="contact-form-input"
+										placeholder="Enter your phone number"
+									/>
+								</div>
+							</div>
+
+							<!-- Subject -->
+							<div class="col-md-6">
+								<div class="contact-form-group">
+									<label for="subject" class="contact-form-label-text">
+										Subject <span class="contact-required">*</span>
+									</label>
+									<select
+										id="subject"
+										name="subject"
+										class="contact-form-input contact-form-select"
+										required
+									>
+										<option value="">Select a subject</option>
+										<option value="Audit & Assurance">
+											Audit & Assurance
+										</option>
+										<option value="Tax Consulting">Tax Consulting</option>
+										<option value="Business Advisory">
+											Business Advisory
+										</option>
+										<option value="Accounting Services">
+											Accounting Services
+										</option>
+										<option value="Financial Analysis">
+											Financial Analysis
+										</option>
+										<option value="Compliance & Regulatory">
+											Compliance & Regulatory
+										</option>
+										<option value="Other Inquiry">Other Inquiry</option>
+									</select>
+								</div>
+							</div>
+
+							<!-- Message -->
+							<div class="col-12">
+								<div class="contact-form-group">
+									<label for="message" class="contact-form-label-text">
+										Your Message <span class="contact-required">*</span>
+									</label>
+									<textarea
+										id="message"
+										name="message"
+										class="contact-form-textarea"
+										rows="6"
+										placeholder="Tell us how we can help you..."
+										required
+									></textarea>
+								</div>
+							</div>
+
+							<!-- Submit Button -->
+							<div class="col-12">
+								<button
+									type="submit"
+									class="contact-form-submit-btn"
+									id="submitBtn"
+								>
+									<span class="contact-btn-text">Send Message</span>
+									<i class="fa fa-paper-plane contact-btn-icon"></i>
+								</button>
+								<div
+									class="contact-form-message"
+									id="formMessage"
+									style="display: none; margin-top: 15px"
+								></div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<!-- Contact Details Sidebar -->
+			<div class="col-lg-5">
+				<div class="contact-details-wrapper">
+					<div class="contact-details-header">
+						<span class="contact-form-label">CONTACT INFORMATION</span>
+						<h3 class="contact-details-title">Ibrahim Al-Salmi CPA</h3>
+						<p class="contact-details-description">
+							Your trusted partner in accounting, auditing, and financial services
+						</p>
+					</div>
+
+					<!-- Contact Details List -->
+					<div class="contact-details-list">
+						<!-- Office Hours -->
+						<div class="contact-detail-item">
+							<div class="contact-detail-icon">
+								<i class="fa-solid fa-clock"></i>
+							</div>
+							<div class="contact-detail-content">
+								<h4 class="contact-detail-heading">Office Hours</h4>
+								<p class="contact-detail-text">
+									Sunday - Thursday: 8:00 AM - 5:00 PM
+								</p>
+								<p class="contact-detail-text">Friday - Saturday: Closed</p>
+							</div>
+						</div>
+
+						<!-- Phone Numbers -->
+						<div class="contact-detail-item">
+							<div class="contact-detail-icon">
+								<i class="fa fa-phone"></i>
+							</div>
+							<div class="contact-detail-content">
+								<h4 class="contact-detail-heading">Phone</h4>
+								<a href="tel:+96656022188" class="contact-detail-link">
+									+966 56 022 188
+								</a>
+								<a href="tel:+96611234567" class="contact-detail-link">
+									+966 11 234 567
+								</a>
+							</div>
+						</div>
+
+						<!-- Email -->
+						<div class="contact-detail-item">
+							<div class="contact-detail-icon">
+								<i class="fa fa-envelope"></i>
+							</div>
+							<div class="contact-detail-content">
+								<h4 class="contact-detail-heading">Email</h4>
+								<a href="mailto:info@alsulmi.com" class="contact-detail-link">
+									info@alsulmi.com
+								</a>
+								<a href="mailto:support@alsulmi.com" class="contact-detail-link">
+									support@alsulmi.com
+								</a>
+							</div>
+						</div>
+
+						<!-- Address -->
+						<div class="contact-detail-item">
+							<div class="contact-detail-icon">
+								<i class="fa fa-map-marker"></i>
+							</div>
+							<div class="contact-detail-content">
+								<h4 class="contact-detail-heading">Address</h4>
+								<p class="contact-detail-text">
+									King Fahd Road, Al Olaya District<br />
+									Riyadh 12211<br />
+									Kingdom of Saudi Arabia
+								</p>
+							</div>
+						</div>
+
+						<!-- Social Media -->
+						<div class="contact-detail-item">
+							<div class="contact-detail-icon">
+								<i class="fa fa-share-alt"></i>
+							</div>
+							<div class="contact-detail-content">
+								<h4 class="contact-detail-heading">Follow Us</h4>
+								<div class="contact-social-links">
+									<a href="#" class="contact-social-link" aria-label="LinkedIn">
+										<i class="fab fa-linkedin-in"></i>
+									</a>
+									<a href="#" class="contact-social-link" aria-label="Twitter">
+										<i class="fab fa-twitter"></i>
+									</a>
+									<a href="#" class="contact-social-link" aria-label="Facebook">
+										<i class="fab fa-facebook"></i>
+									</a>
+									<a href="#" class="contact-social-link" aria-label="Instagram">
+										<i class="fab fa-instagram"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Map Section -->
+<section class="contact-map-section">
+	<div class="contact-map-container">
+		<iframe
+			src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.2486091805447!2d46.67233731500188!3d24.71390778410756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03528f4e4f79%3A0x4b1c1b3c1b3c1b3c!2sKing%20Fahd%20Road%2C%20Riyadh%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s"
+			width="100%"
+			height="450"
+			style="border: 0"
+			allowfullscreen=""
+			loading="lazy"
+			referrerpolicy="no-referrer-when-downgrade"
+			class="contact-map-iframe"
+		></iframe>
+	</div>
+</section>
+
+<!-- FAQ Section -->
+<section class="contact-faq-section">
+	<div class="container">
+		<div class="text-center mb-5">
+			<span class="contact-form-label">FREQUENTLY ASKED QUESTIONS</span>
+			<h2 class="contact-section-heading">How Can We Help You?</h2>
+			<p class="contact-section-subheading">
+				Quick answers to common questions about our services
+			</p>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-8 mx-auto">
+				<div class="contact-faq-accordion">
+					<!-- FAQ Item 1 -->
+					<div class="contact-faq-item">
+						<button class="contact-faq-question" type="button">
+							<span>What services do you provide?</span>
+							<i class="fa fa-chevron-down contact-faq-icon"></i>
+						</button>
+						<div class="contact-faq-answer">
+							<p>
+								We provide comprehensive financial services including audit &
+								assurance, tax consulting, business advisory, accounting services,
+								financial analysis, and compliance & regulatory services tailored
+								to your business needs.
+							</p>
+						</div>
+					</div>
+
+					<!-- FAQ Item 2 -->
+					<div class="contact-faq-item">
+						<button class="contact-faq-question" type="button">
+							<span>How can I schedule a consultation?</span>
+							<i class="fa fa-chevron-down contact-faq-icon"></i>
+						</button>
+						<div class="contact-faq-answer">
+							<p>
+								You can schedule a consultation by calling us at +966 56 022 188,
+								sending an email to info@alsulmi.com, or filling out the contact
+								form above. Our team will respond within 24 hours.
+							</p>
+						</div>
+					</div>
+
+					<!-- FAQ Item 3 -->
+					<div class="contact-faq-item">
+						<button class="contact-faq-question" type="button">
+							<span>What are your office hours?</span>
+							<i class="fa fa-chevron-down contact-faq-icon"></i>
+						</button>
+						<div class="contact-faq-answer">
+							<p>
+								Our office is open Sunday through Thursday from 8:00 AM to 5:00 PM.
+								We are closed on Friday and Saturday. For urgent matters outside
+								business hours, please leave a message and we'll contact you
+								promptly.
+							</p>
+						</div>
+					</div>
+
+					<!-- FAQ Item 4 -->
+					<div class="contact-faq-item">
+						<button class="contact-faq-question" type="button">
+							<span>Do you offer virtual consultations?</span>
+							<i class="fa fa-chevron-down contact-faq-icon"></i>
+						</button>
+						<div class="contact-faq-answer">
+							<p>
+								Yes, we offer virtual consultations via video conference for
+								clients who prefer remote meetings. Please mention your preference
+								when scheduling your appointment.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	// Frontend logging: console.log('[contact_us_page.html] method: function_name')
+
+	// FAQ Accordion functionality
+	document.addEventListener('DOMContentLoaded', function () {
+		const faqQuestions = document.querySelectorAll('.contact-faq-question');
+
+		faqQuestions.forEach(function (question) {
+			question.addEventListener('click', function () {
+				const faqItem = this.parentElement;
+				const isActive = faqItem.classList.contains('contact-faq-active');
+
+				// Close all FAQ items
+				document.querySelectorAll('.contact-faq-item').forEach(function (item) {
+					item.classList.remove('contact-faq-active');
+				});
+
+				// Open clicked item if it wasn't active
+				if (!isActive) {
+					faqItem.classList.add('contact-faq-active');
+				}
+
+				console.log('[contact_us_page.html] method: toggleFAQ');
+			});
+		});
+	});
+
+	// Contact Form submission
+	document.getElementById('contactForm').addEventListener('submit', function (e) {
+		e.preventDefault();
+
+		const submitBtn = document.getElementById('submitBtn');
+		const formMessage = document.getElementById('formMessage');
+		const form = this;
+
+		// Disable submit button
+		submitBtn.disabled = true;
+		submitBtn.innerHTML =
+			'<span class="contact-btn-text">Sending...</span><i class="fa fa-spinner fa-spin contact-btn-icon"></i>';
+
+		// Get form data
+		const formData = {
+			lead_name: document.getElementById('lead_name').value,
+			email_id: document.getElementById('email_id').value,
+			phone: document.getElementById('phone').value || '',
+			subject: document.getElementById('subject').value,
+			message: document.getElementById('message').value,
+		};
+
+		// Submit via Frappe API
+		frappe.call({
+			method: 'lms_custom.api.send_contact_message',
+			args: formData,
+			callback: function (r) {
+				if (r.message && r.message.success) {
+					// Success
+					formMessage.style.display = 'block';
+					formMessage.style.color = '#2dd36f';
+					formMessage.innerHTML =
+						'<i class="fa fa-check-circle"></i> Thank you for contacting us! We will get back to you soon.';
+					form.reset();
+				} else {
+					// Error
+					formMessage.style.display = 'block';
+					formMessage.style.color = '#e03636';
+					formMessage.innerHTML =
+						'<i class="fa fa-exclamation-circle"></i> ' +
+						(r.message.message || 'Something went wrong. Please try again.');
+				}
+				// Re-enable submit button
+				submitBtn.disabled = false;
+				submitBtn.innerHTML =
+					'<span class="contact-btn-text">Send Message</span><i class="fa fa-paper-plane contact-btn-icon"></i>';
+			},
+			error: function (err) {
+				formMessage.style.display = 'block';
+				formMessage.style.color = '#e03636';
+				formMessage.innerHTML =
+					'<i class="fa fa-exclamation-circle"></i> Error: ' +
+					(err.message || 'Please try again later.');
+				// Re-enable submit button
+				submitBtn.disabled = false;
+				submitBtn.innerHTML =
+					'<span class="contact-btn-text">Send Message</span><i class="fa fa-paper-plane contact-btn-icon"></i>';
+				console.log('[contact_us_page.html] error: submitContactForm');
+			},
+		});
+
+		console.log('[contact_us_page.html] method: submitContactForm');
+	});
+</script>
