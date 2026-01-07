@@ -1,4 +1,8 @@
 /* Hero Slideshow Styles */
+a:hover {
+	text-decoration: none !important;
+}
+
 .hero {
 	position: relative;
 	width: 100%;
