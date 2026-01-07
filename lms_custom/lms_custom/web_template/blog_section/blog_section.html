@@ -5,9 +5,9 @@
 		<div class="row mb-5">
 			<div class="col-12 text-center">
 				<div class="blog-section-label text-primary mb-3">
-					{{ section_label or "Our Latest news" }}
+					{{ _(section_label or "Our Latest news") }}
 				</div>
-				<h2 class="blog-section-heading">{{ section_heading or "Blog & Articles" }}</h2>
+				<h2 class="blog-section-heading">{{ _(section_heading or "Blog & Articles") }}</h2>
 				{% if section_description %}
 				<p class="blog-section-description">{{ section_description }}</p>
 				{% endif %}
@@ -67,7 +67,7 @@
 
 						<!-- Read More Link -->
 						<a href="/{{ post.route }}" class="blog-read-more">
-							Read More <i class="fa fa-arrow-right"></i>
+							{{ _("Read More") }} <i class="fa fa-arrow-right"></i>
 						</a>
 					</div>
 				</article>
@@ -75,7 +75,7 @@
 			{% endfor %} {% else %}
 			<!-- No Blog Posts Message -->
 			<div class="col-12 text-center">
-				<p class="text-muted">No blog posts available at the moment.</p>
+				<p class="text-muted">{{ _("No blog posts available at the moment.") }}</p>
 			</div>
 			{% endif %}
 		</div>
@@ -85,7 +85,7 @@
 		<div class="row mt-4">
 			<div class="col-12 text-center">
 				<a href="{{ view_all_link or '/blog' }}" class="btn btn-theme-primary btn-lg">
-					View All Articles
+					{{ _("View All Articles") }}
 				</a>
 			</div>
 		</div>
