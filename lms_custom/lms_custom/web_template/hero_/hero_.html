@@ -31,7 +31,7 @@
 				data-slide="prev"
 			>
 				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-				<span class="sr-only">Previous</span>
+				<span class="sr-only">{{ _("Previous") }}</span>
 			</a>
 
 			<!-- Indicators (dots) -->
@@ -52,7 +52,7 @@
 				data-slide="next"
 			>
 				<span class="carousel-control-next-icon" aria-hidden="true"></span>
-				<span class="sr-only">Next</span>
+				<span class="sr-only">{{ _("Next") }}</span>
 			</a>
 		</div>
 
@@ -71,9 +71,13 @@
 					{% endif %}
 					<div class="hero-cta-buttons">
 						{% if slide.url %}
-						<a href="{{ slide.url }}" class="btn btn-primary btn-lg">Learn More</a>
+						<a href="{{ slide.url }}" class="btn btn-primary btn-lg"
+							>{{ _("Learn More") }}</a
+						>
 						{% endif %}
-						<a href="/courses" class="btn btn-outline-light btn-lg">View Courses</a>
+						<a href="/courses" class="btn btn-outline-light btn-lg"
+							>{{ _("View Courses") }}</a
+						>
 					</div>
 				</div>
 				{% endfor %}
