@@ -216,11 +216,16 @@
 	justify-content: center;
 	transition: all 0.3s ease;
 	opacity: 1 !important;
+	background-color: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .carousel-control-custom:hover {
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: var(--theme-primary);
+	border-color: var(--theme-primary);
 	transform: scale(1.1);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .carousel-indicators-custom {
@@ -246,8 +251,11 @@
 }
 
 .carousel-indicators-custom li.active {
-	background-color: rgba(255, 255, 255, 1);
+	background-color: var(--theme-primary);
 	width: 12px;
+	height: 12px;
+	box-shadow: 0 0 10px var(--theme-primary);
+}
 	height: 12px;
 }
 
